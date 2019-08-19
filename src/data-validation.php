@@ -1,7 +1,6 @@
 <?php
 
-require 'sql-connections.php';
-require 'sql-functions.php';
+/* We dont include any libraries here. When they're all included in candidate-listings.php, these functions will have access to the necessary libraries. */
 
 /*************************/
 /** DATA-VALIDATION.PHP **/

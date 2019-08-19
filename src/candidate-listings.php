@@ -16,18 +16,18 @@ require 'data-validation.php';
 /*-----------*/
 
 /* This function inserts given candidate info into 'Unplaced Candidates' table. */
-function insertCandidate($candidateInfo){
+function insertCandidate($name,$number,$email,$qualification){
 
 	/* We must first validate the information. */
 	/* If not valid, we return false. */
 
-	if(numberIsValid($candidateInfo[1]) == false) {
+	if(numberIsValid($number) == false) {
 		return false;
 	}
-	else if(numberDoesntExist($candidateInfo[1]) == false) {
+	else if(numberDoesntExist($number) == false) {
 		return false;
 	}
-	else if(emailIsValid($candidateInfo[2] == false)) {
+	else if(emailIsValid($email) == false) {
 		return false;
 	}
 
@@ -44,10 +44,10 @@ function insertCandidate($candidateInfo){
 		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?);";
 
 		$sql = $connection->prepare($sqlstmt);
-		$sql->bindParam(1, $candidateInfo[0]);
-		$sql->bindParam(2, $candidateInfo[1]);
-		$sql->bindParam(3, $candidateInfo[2]);
-		$sql->bindParam(4, $candidateInfo[3]);
+		$sql->bindParam(1, $name);
+		$sql->bindParam(2, $number);
+		$sql->bindParam(3, $email);
+		$sql->bindParam(4, $qualification);
 		$sql->bindParam(5, $resumeName);
 		$sql->bindParam(6, $rejectedCompanies);
 		$sql->execute();
@@ -63,7 +63,81 @@ function insertCandidate($candidateInfo){
 
 }
 
-echo insertCandidate(array("Arjun","8939227284","arjun@gmail.com","DIPLOMA"));
+/* Retrieves an array of candidates based on the filter and pagination options passed in. */
+function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualification = NULL, $paginationNum = 1) {
+
+	/* We must first construct an SQL statement using the options passed in. */
+
+	$sqlstmt = "SELECT ID, NAME, NUMBER, EMAIL, QUALIFICATION, RESUME FROM UNPLACED_CANDIDATES WHERE ";
+
+	//We check for NAME.
+	if($name != NULL) {
+		$sqlstmt .= "NAME = '$name' ";
+	}
+	else {
+		$sqlstmt .= "NAME = '%' ";
+	}
+
+	//We check for NUMBER.
+	if($number != NULL) {
+		$sqlstmt .= "AND NUMBER = '$number' ";
+	}
+	else {
+		$sqlstmt .= "AND NUMBER = '%' ";
+	}
+
+	//We check for EMAIL.
+	if($email != NULL) {
+		$sqlstmt .= "AND EMAIL = '$email' ";
+	}
+	else {
+		$sqlstmt .= "AND EMAIL = '%' ";
+	}
+
+	//We check for QUALIFICATION.
+	if($qualification != NULL) {
+		$sqlstmt .= "AND QUALIFICATION = '$qualification' ";
+	}
+	else {
+		$sqlstmt .= "AND QUALIFICATION = '%' ";
+	}
+
+	//We now construct for the Pagination Limit.
+	$paginationNum *= 10;
+	$sqlstmt .= "LIMIT ".($paginationNum-10).",".($paginationNum).";";
+
+	try {
+
+		$connection = getConnection(); //Creates connection.
+
+		$results = executeQuery($connection, $sqlstmt);
+		$connection = NULL; //Closes connection.
+
+		$id = array();
+		$name = array();
+		$number = array();
+		$email = array();
+		$qualification = array();
+		$resume = array();
+
+		foreach ($results as $row) {
+			$id.array_push($row['ID']);
+			$name.array_push($row['NAME']);
+			$number.array_push($row['NUMBER']);
+			$email.array_push($row['EMAIL']);
+			$qualification.array_push($row['QUALIFICATION']);
+			$resume.array_push($row['RESUME']);
+		}
+
+		return array($id,$name,$number,$email,$qualification,$resume);
+
+	} catch (PDOException $exception) {
+		echo "Exception Thrown (candidate-listings.php/getCandidate): $exception";
+	}
+
+	return false; //In case something goes wrong.
+
+}
 
 /*-----------*/
 /* Utilities */
