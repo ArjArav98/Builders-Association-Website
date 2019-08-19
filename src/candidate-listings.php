@@ -19,9 +19,24 @@ require 'data-validation.php';
 function insertCandidate($candidateInfo){
 
 	/* We must first validate the information. */
+	/* If not valid, we return false. */
 
-	$autoIncValue = getCurrentAutoIncValue().".pdf";
+	if(numberIsValid($candidateInfo[1]) == false) {
+		return false;
+	}
+	else if(numberDoesntExist($candidateInfo[1]) == false) {
+		return false;
+	}
+	else if(emailIsValid($candidateInfo[2] == false)) {
+		return false;
+	}
+
+	/* We initialise the following values. */
+	
+	$resumeName = getCurrentAutoIncValue().".pdf";
 	$rejectedCompanies = "0000 ";
+
+	/* Once everything is set, we insert into SQL table. */
 
 	try {
 
@@ -33,7 +48,7 @@ function insertCandidate($candidateInfo){
 		$sql->bindParam(2, $candidateInfo[1]);
 		$sql->bindParam(3, $candidateInfo[2]);
 		$sql->bindParam(4, $candidateInfo[3]);
-		$sql->bindParam(5, $autoIncValue);
+		$sql->bindParam(5, $resumeName);
 		$sql->bindParam(6, $rejectedCompanies);
 		$sql->execute();
 
@@ -43,9 +58,12 @@ function insertCandidate($candidateInfo){
 		echo "Exception Thrown (candidate-listings.php/insertCandidate): $exception";
 	}
 
+	/* If successful, we return true. */
+	return true;
+
 }
 
-insertCandidate(array("Arjun","8939227284","arjun@gmail.com","DIPLOMA"));
+echo insertCandidate(array("Arjun","8939227284","arjun@gmail.com","DIPLOMA"));
 
 /*-----------*/
 /* Utilities */
