@@ -41,7 +41,7 @@ function insertCandidate($name,$number,$email,$qualification){
 	try {
 
 		$connection = getConnection();
-		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?);";
+		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, 0);";
 
 		$sql = $connection->prepare($sqlstmt);
 		$sql->bindParam(1, $name);
@@ -65,7 +65,7 @@ function insertCandidate($name,$number,$email,$qualification){
 
 
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
-function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualification = NULL, $paginationNum = 1) {
+function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL, $referred=NULL, $paginationNum = 1) {
 
 	/* We must first construct an SQL statement using the options passed in. */
 
@@ -83,24 +83,20 @@ function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualificatio
 	if($number != NULL) {
 		$sqlstmt .= "AND NUMBER = '$number' ";
 	}
-	else {
-		$sqlstmt .= "AND NUMBER LIKE '%' ";
-	}
 
 	//We check for EMAIL.
 	if($email != NULL) {
 		$sqlstmt .= "AND EMAIL = '$email' ";
-	}
-	else {
-		$sqlstmt .= "AND EMAIL LIKE '%' ";
 	}
 
 	//We check for QUALIFICATION.
 	if($qualification != NULL) {
 		$sqlstmt .= "AND QUALIFICATION = '$qualification' ";
 	}
-	else {
-		$sqlstmt .= "AND QUALIFICATION LIKE '%' ";
+
+	//We check for REFERRED_COMPANY.
+	if($referred != NULL) {
+		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
 	}
 
 	//We now construct for the Pagination Limit.
@@ -137,6 +133,44 @@ function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualificatio
 	}
 
 	return false; //In case something goes wrong.
+
+}
+
+/* We refer the candidate to a particular company. */
+function referCandidate($candidateId, $companyId){
+
+	/* We simply update the REFERRED_COMPANY column of a candidate to that of the company's ID.*/
+	try {
+
+		$connection = getConnection();
+		$sqlstmt = "UPDATE UNPLACED_CANDIDATES SET REFERRED_COMPANY = '$companyId' WHERE ID = $candidateId;";
+
+		$sql = $connection->prepare($sqlstmt);
+		$sql->execute();
+		$connection = NULL;
+
+	} catch (PDOException $exception) {
+		echo "Exception Thrown (candidate-listings.php/referCandidate): $exception";
+	}
+
+}
+
+/* We refer the candidate to a particular company. */
+function placeCandidate($candidateId, $companyId){
+
+	/* We simply update the REFERRED_COMPANY column of a candidate to that of the company's ID.*/
+	try {
+
+		$connection = getConnection();
+		$sqlstmt = "UPDATE UNPLACED_CANDIDATES SET REFERRED_COMPANY = '$companyId' WHERE ID = $candidateId;";
+
+		$sql = $connection->prepare($sqlstmt);
+		$sql->execute();
+		$connection = NULL;
+
+	} catch (PDOException $exception) {
+		echo "Exception Thrown (candidate-listings.php/referCandidate): $exception";
+	}
 
 }
 
