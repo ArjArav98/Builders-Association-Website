@@ -63,6 +63,7 @@ function insertCandidate($name,$number,$email,$qualification){
 
 }
 
+
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
 function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualification = NULL, $paginationNum = 1) {
 
@@ -75,7 +76,7 @@ function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualificatio
 		$sqlstmt .= "NAME = '$name' ";
 	}
 	else {
-		$sqlstmt .= "NAME = '%' ";
+		$sqlstmt .= "NAME LIKE '%' ";
 	}
 
 	//We check for NUMBER.
@@ -83,7 +84,7 @@ function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualificatio
 		$sqlstmt .= "AND NUMBER = '$number' ";
 	}
 	else {
-		$sqlstmt .= "AND NUMBER = '%' ";
+		$sqlstmt .= "AND NUMBER LIKE '%' ";
 	}
 
 	//We check for EMAIL.
@@ -91,7 +92,7 @@ function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualificatio
 		$sqlstmt .= "AND EMAIL = '$email' ";
 	}
 	else {
-		$sqlstmt .= "AND EMAIL = '%' ";
+		$sqlstmt .= "AND EMAIL LIKE '%' ";
 	}
 
 	//We check for QUALIFICATION.
@@ -99,7 +100,7 @@ function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualificatio
 		$sqlstmt .= "AND QUALIFICATION = '$qualification' ";
 	}
 	else {
-		$sqlstmt .= "AND QUALIFICATION = '%' ";
+		$sqlstmt .= "AND QUALIFICATION LIKE '%' ";
 	}
 
 	//We now construct for the Pagination Limit.
@@ -121,12 +122,12 @@ function getCandidate($name = NULL, $number = NULL, $email = NULL, $qualificatio
 		$resume = array();
 
 		foreach ($results as $row) {
-			$id.array_push($row['ID']);
-			$name.array_push($row['NAME']);
-			$number.array_push($row['NUMBER']);
-			$email.array_push($row['EMAIL']);
-			$qualification.array_push($row['QUALIFICATION']);
-			$resume.array_push($row['RESUME']);
+			array_push($id,$row['ID']);
+			array_push($name,$row['NAME']);
+			array_push($number,$row['NUMBER']);
+			array_push($email,$row['EMAIL']);
+			array_push($qualification,$row['QUALIFICATION']);
+			array_push($resume,$row['RESUME']);
 		}
 
 		return array($id,$name,$number,$email,$qualification,$resume);
