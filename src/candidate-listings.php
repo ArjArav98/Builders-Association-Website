@@ -65,7 +65,7 @@ function insertCandidate($name,$number,$email,$qualification){
 
 
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
-function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL, $referred=NULL, $paginationNum = 1) {
+function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL, $referred=NULL, $placed=NULL, $paginationNum = 1) {
 
 	/* We must first construct an SQL statement using the options passed in. */
 
@@ -97,6 +97,11 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 	//We check for REFERRED_COMPANY.
 	if($referred != NULL) {
 		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
+	}
+
+	//We check for the PLACED column.
+	if($placed != NULL) {
+		$sqlstmt .= "AND PLACED = $placed ";
 	}
 
 	//We now construct for the Pagination Limit.
@@ -156,13 +161,13 @@ function referCandidate($candidateId, $companyId){
 }
 
 /* We refer the candidate to a particular company. */
-function placeCandidate($candidateId, $companyId){
+function placeCandidate($candidateId){
 
 	/* We simply update the REFERRED_COMPANY column of a candidate to that of the company's ID.*/
 	try {
 
 		$connection = getConnection();
-		$sqlstmt = "UPDATE UNPLACED_CANDIDATES SET REFERRED_COMPANY = '$companyId' WHERE ID = $candidateId;";
+		$sqlstmt = "UPDATE UNPLACED_CANDIDATES SET PLACED=1 WHERE ID=$candidateId;";
 
 		$sql = $connection->prepare($sqlstmt);
 		$sql->execute();
