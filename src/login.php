@@ -1,8 +1,5 @@
 <?php
 
-require '../../src/sql-connections.php';
-require '../../src/sql-functions.php';
-
 /*************/
 /* LOGIN.PHP */
 /*************/

@@ -1,6 +1,9 @@
 <?php
 
 session_start();
+
+require '../../src/sql-connections.php';
+require '../../src/sql-functions.php';
 require '../../src/login.php';
 
 $username = $_REQUEST['username'];

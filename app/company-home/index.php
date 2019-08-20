@@ -1,7 +1,32 @@
+<?php
+
+session_start();
+require '../../src/candidate-listings.php';
+
+/* We get the required list of candidates from the database using the search options. */
+
+$results = getCandidate(NULL, NULL, NULL, NULL, NULL, 0, 1);
+
+/* We shall now iterate over the candidates and produce a HTML string. */
+
+$iterator = 0;
+$length = sizeof($results[0]);
+$HTML = "";
+
+while($iterator < $length) {
+
+	$HTML .= "<div class='candidate'><p>".$results[1][$iterator].", ".$results[2][$iterator].", ".$results[3][$iterator].", ".$results[4][$iterator]."</p><form method='post' class='candidate-form'><button type='submit'>Accept</button></form><form method='post' class='candidate-form'><button type='submit'>Reject</button></form></div>";
+
+	$iterator += 1;
+
+}
+
+?>
+
 <!DOCTYPE html>
 
 	<head>
-		<title>Company - Home | Builders Association</title>
+		<title>Admin - Home | Builders Association</title>
 		<style>
 			body, html {
 				margin: 0;
@@ -47,7 +72,6 @@
 				padding: 0.5%;
 
 				font-size: 105%;
-				cursor: pointer;
 			}
 
 			.candidate-list {
@@ -81,7 +105,7 @@
 
 			.candidate-form button {
 				padding: 0.7%;
-				margin: 0.5% 0%;
+				margin: 0.5% 0%;	
 			}
 		</style>
 	</head>
@@ -92,15 +116,7 @@
 
 		<!-- The list of candidates will be displayed here. -->
 		<div class="candidate-list">
-			<div class="candidate">
-				<p>Arjun Aravind, 8939227284, arjun.aravind1998@gmail.com, Diploma</p>
-				<form method="post" class="candidate-form">
-					<button type="submit">Accept</button>
-				</form>
-				<form method="post" class="candidate-form">
-					<button type="submit">Reject</button>
-				</form>
-			</div>
+			<?php echo $HTML; ?>
 		</div>
 
 	</body>
