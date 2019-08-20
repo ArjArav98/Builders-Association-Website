@@ -73,7 +73,7 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 
 	//We check for NAME.
 	if($name != NULL) {
-		$sqlstmt .= "NAME = '$name' ";
+		$sqlstmt .= "NAME LIKE  '%$name%' ";
 	}
 	else {
 		$sqlstmt .= "NAME LIKE '%' ";
@@ -81,17 +81,17 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 
 	//We check for NUMBER.
 	if($number != NULL) {
-		$sqlstmt .= "AND NUMBER = '$number' ";
+		$sqlstmt .= "AND NUMBER LIKE '%$number%' ";
 	}
 
 	//We check for EMAIL.
 	if($email != NULL) {
-		$sqlstmt .= "AND EMAIL = '$email' ";
+		$sqlstmt .= "AND EMAIL LIKE '%$email%' ";
 	}
 
 	//We check for QUALIFICATION.
 	if($qualification != NULL) {
-		$sqlstmt .= "AND QUALIFICATION = '$qualification' ";
+		$sqlstmt .= "AND QUALIFICATION LIKE '%$qualification%' ";
 	}
 
 	//We check for REFERRED_COMPANY.
