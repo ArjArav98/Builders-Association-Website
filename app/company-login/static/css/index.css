@@ -1,0 +1,41 @@
+body, html {
+	margin: 0;
+	padding: 0;
+	
+	font-family: "Verdana", sans-serif;
+	color: black;
+}
+
+h2 {
+	display: block;
+	margin: 10% 0% 3% 0%;
+	text-align: center;
+}
+
+form {
+	display: block;
+	width: 100%;
+
+	text-align: center;
+}
+
+input {
+	display: block;
+	width: 25%;
+
+	margin: .5% auto;
+	padding: .5%;
+
+	font-size: 115%;
+}
+
+button {
+	display: block;
+	width: 26.3%;
+
+	margin: .5% auto;
+	padding: .5%;
+
+	font-size: 115%;
+	cursor: pointer;
+}
