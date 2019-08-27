@@ -65,7 +65,7 @@ function insertCandidate($name,$number,$email,$qualification){
 
 
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
-function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL, $referred=NULL, $placed=NULL, $paginationNum = 1) {
+function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL, $referred=NULL, $placed=0, $paginationNum = 1) {
 
 	/* We must first construct an SQL statement using the options passed in. */
 
@@ -103,7 +103,7 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 	}
 
 	//We check for the PLACED column.
-	if($placed != NULL) {
+	if($placed == 0 || $placed == 1) {
 		$sqlstmt .= "AND PLACED = $placed ";
 	}
 
