@@ -10,9 +10,9 @@
 session_start();
 
 /* We store the necessary filtering options in SESSION variables. */
-$_SESSION["SEARCH_NAME"] = $_REQUEST["name"];
-$_SESSION["SEARCH_NUMBER"] = $_REQUEST["number"];
-$_SESSION["SEARCH_EMAIL"] = $_REQUEST["email"];
+$_SESSION["SEARCH_NAME"] = $_POST["name"];
+$_SESSION["SEARCH_NUMBER"] = $_POST["number"];
+$_SESSION["SEARCH_EMAIL"] = $_POST["email"];
 
 if($_REQUEST["qualification"] == "NULL"){
 	$_SESSION["SEARCH_QUALIFICATION"] = NULL;

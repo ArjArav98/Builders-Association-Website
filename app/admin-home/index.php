@@ -20,7 +20,7 @@ $HTML = "";
 
 /* We iterate over the array and generate a HTML string. */
 while($iterator < $length) {
-	$HTML .= "<div class='candidate'><p>".$results[1][$iterator].", ".$results[2][$iterator].", ".$results[3][$iterator].", ".$results[4][$iterator]."</p><form method='post' class='candidate-form'><input type='text' name='companyid' placeholder='Company ID'><button type='submit'>Refer</button></form></div>";
+	$HTML .= "<div class='candidate'><p>".$results[1][$iterator].", ".$results[2][$iterator].", ".$results[3][$iterator].", ".$results[4][$iterator]."</p><form method='get' action='refer-company.php' class='candidate-form'><input type='text' name='companyid' placeholder='Company ID'><input type='hidden' name='candidateid' value='".$results[0][$iterator]."'><button type='submit'>Refer</button></form></div>";
 
 	$iterator += 1;
 }

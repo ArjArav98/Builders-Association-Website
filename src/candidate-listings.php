@@ -95,6 +95,9 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 	}
 
 	//We check for REFERRED_COMPANY.
+	if($referred == NULL) {
+		$sqlstmt .= "AND REFERRED_COMPANY IS NULL ";
+	}
 	if($referred != NULL) {
 		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
 	}
