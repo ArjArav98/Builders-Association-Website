@@ -42,11 +42,18 @@ while($iterator < $length) {
 	</head>
 
 	<body>
+	
+		<!-- This page contains options for displaying and searching for candidates. -->
+		<!-- This page also contains an option to log out and display comapnies. -->
 
-		<!-- We'll need the filtering options and list of candidates. -->
+		<nav>
+			<a href="">Companies List</a>
+			<a href="">Candidates List</a>
+			<a href="../admin-login/index.html">Logout</a>
+		</nav>
 
 		<!-- The options for filtering present as a form. -->
-		<form method="get" action="admin-filter.php">
+		<form method="get" action="admin-filter.php" class="search-form">
 			<h2>Search Options</h2>
 			<input type="text" name="name" placeholder="Name">
 			<input type="number" name="number" placeholder="Phone Number">

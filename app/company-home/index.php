@@ -37,11 +37,16 @@ while($iterator < $length) {
 <!DOCTYPE html>
 
 	<head>
-		<title>Admin - Home | Builders Association</title>
+		<title>Companies - Home | Builders Association</title>
 		<link href="static/css/index1.css" rel="stylesheet">
 	</head>
 
 	<body>
+
+		<nav>
+			<a href="">Referred Candidates List</a>
+			<a href="../company-login/index.html">Logout</a>
+		</nav>
 
 		<h2>Referred Candidates</h2>
 
