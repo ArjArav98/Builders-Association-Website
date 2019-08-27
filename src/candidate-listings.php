@@ -182,6 +182,25 @@ function placeCandidate($candidateId){
 
 }
 
+/* We reject the candidate from a particular company. */
+function rejectCandidate($candidateId){
+
+	/* We simply update the REFERRED_COMPANY column of a candidate to that of the company's ID.*/
+	try {
+
+		$connection = getConnection();
+		$sqlstmt = "UPDATE UNPLACED_CANDIDATES SET REFERRED_COMPANY=NULL WHERE ID=$candidateId;";
+
+		$sql = $connection->prepare($sqlstmt);
+		$sql->execute();
+		$connection = NULL;
+
+	} catch (PDOException $exception) {
+		echo "Exception Thrown (candidate-listings.php/referCandidate): $exception";
+	}
+
+}
+
 /*-----------*/
 /* Utilities */
 /*-----------*/

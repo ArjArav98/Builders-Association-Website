@@ -20,7 +20,10 @@ $HTML = "";
 
 /* We iterate over the array and generate a HTML string. */
 while($iterator < $length) {
-	$HTML .= "<div class='candidate'><p>".$results[1][$iterator].", ".$results[2][$iterator].", ".$results[3][$iterator].", ".$results[4][$iterator]."</p><form method='get' action='refer-company.php' class='candidate-form'><input type='text' name='companyid' placeholder='Company ID'><input type='hidden' name='candidateid' value='".$results[0][$iterator]."'><button type='submit'>Refer</button></form></div>";
+	$HTML .= "<div class='candidate'>";
+	$HTML .= "<p><span class='cell-value cell-value-bg'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span><span class='cell-value cell-value-bg'>".$results[3][$iterator]."</span><span class='cell-value'>".$results[4][$iterator]."</span>";
+	$HTML .= "<form method='get' action='refer-company.php' class='candidate-form refer-form'><input type='text' name='companyid' placeholder='Company ID'><input type='hidden' name='candidateid' value='".$results[0][$iterator]."'><button type='submit'>Refer</button></form>";
+	$HTML .= "</p></div>";
 
 	$iterator += 1;
 }
@@ -35,7 +38,7 @@ while($iterator < $length) {
 
 	<head>
 		<title>Admin - Home | Builders Association</title>
-		<link href="static/css/index.css" rel="stylesheet">
+		<link href="static/css/index1.css" rel="stylesheet">
 	</head>
 
 	<body>
