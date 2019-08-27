@@ -41,7 +41,7 @@ function insertCandidate($name,$number,$email,$qualification){
 	try {
 
 		$connection = getConnection();
-		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, 0);";
+		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, 0, 0);";
 
 		$sql = $connection->prepare($sqlstmt);
 		$sql->bindParam(1, $name);
@@ -108,7 +108,7 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 	}
 
 	//We now construct for the Pagination Limit.
-	$paginationNum *= 10;
+	$paginationNum *= 100;
 	$sqlstmt .= "LIMIT ".($paginationNum-10).",".($paginationNum).";";
 
 	try {
