@@ -109,7 +109,8 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 
 	//We now construct for the Pagination Limit.
 	$paginationNum *= 100;
-	$sqlstmt .= "LIMIT ".($paginationNum-10).",".($paginationNum).";";
+	$sqlstmt .= "LIMIT ".(0).",".($paginationNum).";";
+
 
 	try {
 
