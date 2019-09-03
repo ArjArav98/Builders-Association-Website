@@ -6,6 +6,10 @@
 /** DATA-VALIDATION.PHP **/
 /*************************/
 
+/*----------------*/
+/* MOBILE NUMBERS */
+/*----------------*/
+
 /* This function checks whether the number is valid or not. */
 function numberIsValid($number) {
 
@@ -44,10 +48,42 @@ function numberDoesntExist($number) {
 
 }
 
+/*--------*/
+/* EMAILS */
+/*--------*/
+
 /* This function checks whether the email is valid or not. */
 function emailIsValid($email) {
 
 	if(preg_match('/^[a-zA-Z0-9_\.]*@[a-zA-z0-9]*(\.[a-zA-Z]*)+$/',$email) == 1) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+
+/*-------------------------*/
+/* USERNAMES AND PASSWORDS */
+/*-------------------------*/
+
+/* This function checks if a username is valid or not. */
+function usernameIsValid($username) {
+	
+	if(preg_match('/^[a-zA-Z0-9_-]+$/',$username) == 1) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+
+/* This function checks if a password is valid or not. */
+function passwordIsValid($password) {
+	
+	if(preg_match('/^[a-zA-Z0-9_-]+$/',$password) == 1) {
 		return true;
 	}
 	else {
