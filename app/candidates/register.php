@@ -1,6 +1,6 @@
 <?php
 
-require '../../src/candidate-listings.php';
+require '../../../src/candidate-listings.php';
 
 $name = $_POST['name'];
 $number = $_POST['number'];
@@ -9,7 +9,7 @@ $qualification = $_POST['qualification'];
 
 insertCandidate($name, $number, $email, $qualification);
 
-/*header('Location: index.html', true, 303);
-die();*/
+header('Location: index.html', true, 303);
+die();
 
 ?>
