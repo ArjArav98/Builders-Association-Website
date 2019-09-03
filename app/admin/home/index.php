@@ -48,7 +48,7 @@ while($iterator < $length) {
 		<!-- This page also contains an option to log out and display comapnies. -->
 
 		<nav>
-			<a href="../companies/index.php">Companies List</a><a
+			<a href="../companies/index.php">Manage Companies</a><a
 			href="">Candidates List</a><a
 			href="../login/index.html">Logout</a>
 		</nav>

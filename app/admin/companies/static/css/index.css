@@ -48,7 +48,7 @@ nav a:hover {
 }
 
 /****************************/
-/* CSS for the SEARCH-FORM. */
+/* CSS for the MANAGE-COMPANY-FORM. */
 /****************************/
 
 form {
@@ -59,7 +59,7 @@ form {
 	background-color: white;
 }
 
-.search-form {
+.manage-company-form {
 	width: 70%;
 
 	margin: 7% auto 4% auto;
@@ -70,23 +70,6 @@ form {
 	color: #2196f3;
 }
 
-input {
-	width: 25%;
-
-	margin: 1%;
-	padding: 0.5%;
-
-	border: 2px solid #2196f3;
-	font-size: 105%;
-	font-weight: 600;
-	color: #2196f3
-}
-
-select {
-	width: 26.5%;
-	margin: 1%;
-}
-
 h2 {
 	display: block;
 	margin: 0% 0% 1.5% 0%;
@@ -95,10 +78,24 @@ h2 {
 	text-align: center;
 }
 
+input {
+	display: inline-block;
+	width: 22%;
+
+	margin: 0.5%;
+	padding: 0.5%;
+
+	border: 2px solid #2196f3;
+	font-size: 105%;
+	font-weight: 600;
+	color: #2196f3
+}
+
 button {
+	display: inline-block;
 	width: 16.3%;
 
-	margin: 1%;
+	margin: 0.5%;
 	padding: 0.5%;
 
 	border: none;
@@ -119,52 +116,41 @@ button:hover {
 }
 
 /********************************/
-/* CSS for the CANDIDATES-LIST. */
+/* CSS for the COMPANIES-LIST. */
 /********************************/
 
-.candidate-list {
+.companies-list {
 	display: block;
 	width: 100%;
 
 	margin: 2% 0%;
 }
 
-.candidate {
+.company {
 	display: block;
 	width: 100%;
 
-	margin: 0 auto;
+	margin: 0.5% auto;
 }
 
-.candidate p {
+.company p {
 	display: inline-block;
-	width: 70%;
+	width: 85%;
 
 	margin: 0;
 }
 
-.candidate-form {
+.company-form {
 	display: inline-block;
-	width: 29%;
+	width: 14%;
 
 	background-color: transparent;
 }
 
-.candidate-form input {
+.company-form button {
 	display: inline-block;
-	margin: 0% 0%;
-	padding: 2% 0%;
-	width: 45%;
-
-	background-color: #2196f3;
-	color: white;
-	text-align: center;
-}
-
-.candidate-form button {
-	display: inline-block;
-	padding: 1.4% 0%;
-	width: 48%;
+	padding: 2.6% 0%;
+	width: 98%;
 }
 
 .cell-value {
@@ -178,7 +164,7 @@ button:hover {
 }
 
 .cell-value-bg {
-	width: 27%;
+	width: 19%;
 }
 
 .cell-value-bg-bg {
