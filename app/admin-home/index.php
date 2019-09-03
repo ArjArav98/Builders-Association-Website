@@ -21,9 +21,9 @@ $HTML = "";
 /* We iterate over the array and generate a HTML string. */
 while($iterator < $length) {
 	$HTML .= "<div class='candidate'>";
-	$HTML .= "<p><span class='cell-value cell-value-bg'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span><span class='cell-value cell-value-bg'>".$results[3][$iterator]."</span><span class='cell-value'>".$results[4][$iterator]."</span>";
+	$HTML .= "<p><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>5+ years</span><span class='cell-value cell-value-bg-bg alternative-cl'>UT OF ANDAMAN AND NICOBAR ISLANDS</span><span class='cell-value'>".$results[4][$iterator]."</span></p>";
 	$HTML .= "<form method='get' action='refer-company.php' class='candidate-form refer-form'><input type='text' name='companyid' placeholder='Company ID'><input type='hidden' name='candidateid' value='".$results[0][$iterator]."'><button type='submit'>Refer</button></form>";
-	$HTML .= "</p></div>";
+	$HTML .= "</div>";
 
 	$iterator += 1;
 }
@@ -39,6 +39,7 @@ while($iterator < $length) {
 	<head>
 		<title>Admin - Home | Builders Association</title>
 		<link href="static/css/index1.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
 	<body>
@@ -47,23 +48,23 @@ while($iterator < $length) {
 		<!-- This page also contains an option to log out and display comapnies. -->
 
 		<nav>
-			<a href="">Companies List</a>
-			<a href="">Candidates List</a>
-			<a href="../admin-login/index.html">Logout</a>
+			<a href="">Companies List</a><a
+			href="">Candidates List</a><a
+			href="../admin-login/index.html">Logout</a>
 		</nav>
 
 		<!-- The options for filtering present as a form. -->
 		<form method="get" action="admin-filter.php" class="search-form">
-			<h2>Search Options</h2>
+			<h2><i class="material-icons">search</i> Filter Candidates</h2>
 			<input type="text" name="name" placeholder="Name">
-			<input type="number" name="number" placeholder="Phone Number">
+			<input type="number" name="number" placeholder="Phone Number"><br>
 			<input type="email" name="email" placeholder="Email">
 			<select name="qualification">
 				<option value="NULL">Qualification</option>
 				<option value="DIPLOMA">Diploma</option>
 				<option value="BACHELORS">Bachelors</option>
 				<option value="SCHOOL">School</option>
-			</select>
+			</select><br>
 			<button type="submit">Search!</button>
 		</form>
 

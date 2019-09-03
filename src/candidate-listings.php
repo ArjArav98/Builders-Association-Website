@@ -111,8 +111,6 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 	$paginationNum *= 100;
 	$sqlstmt .= "LIMIT ".($paginationNum-100).",".($paginationNum).";";
 
-	echo $sqlstmt;
-
 	try {
 
 		$connection = getConnection(); //Creates connection.
