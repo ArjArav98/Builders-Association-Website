@@ -11,9 +11,9 @@ session_start();
 session_unset();
 
 /* We include the necessary libraries. */
-require '../../src/sql-connections.php';
-require '../../src/sql-functions.php';
-require '../../src/login.php';
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/login.php';
 
 /* We get the ADMIN login details. */
 $username = $_REQUEST['username'];
@@ -29,7 +29,7 @@ if(login($username,$password,false) == true) {
 	$_SESSION["SEARCH_QUALIFICATION"] = NULL;
 
 	/* We redirect to the 'ADMIN HOME' page. */
-	header('Location: ../admin-home/index.php', true, 303);
+	header('Location: ../home/index.php', true, 303);
 	die();
 }
 else {

@@ -5,7 +5,7 @@
 /***********************/
 
 session_start();
-require '../../src/candidate-listings.php';
+require '../../../src/candidate-listings.php';
 
 $candidateId = $_GET['candidateId'];
 

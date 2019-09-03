@@ -8,7 +8,7 @@
 
 /* We start the session and include the necessary libraries. */
 session_start();
-require '../../src/candidate-listings.php';
+require '../../../src/candidate-listings.php';
 
 /* We get the required data from the 'refer company' form. */
 $candidateId = $_GET['candidateid'];

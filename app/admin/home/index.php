@@ -8,7 +8,7 @@
 
 /* We start the session and include necessary libraries. */
 session_start();
-require '../../src/candidate-listings.php';
+require '../../../src/candidate-listings.php';
 
 /* We get the required list of candidates from the database using the search options. */
 /* These search options are present as SESSION variables. */
@@ -48,9 +48,9 @@ while($iterator < $length) {
 		<!-- This page also contains an option to log out and display comapnies. -->
 
 		<nav>
-			<a href="">Companies List</a><a
+			<a href="../companies/index.php">Companies List</a><a
 			href="">Candidates List</a><a
-			href="../admin-login/index.html">Logout</a>
+			href="../login/index.html">Logout</a>
 		</nav>
 
 		<!-- The options for filtering present as a form. -->

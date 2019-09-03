@@ -8,7 +8,7 @@
 
 /* We start the SESSION and include the necessary libraries. */
 session_start();
-require '../../src/candidate-listings.php';
+require '../../../src/candidate-listings.php';
 
 /* We get the required list of candidates from the database using the search options. */
 $results = getCandidate(NULL, NULL, NULL, NULL, $_SESSION['COMPANY_ID'], 0, 1);
@@ -45,7 +45,7 @@ while($iterator < $length) {
 
 		<nav>
 			<a href="">Referred Candidates List</a>
-			<a href="../company-login/index.html">Logout</a>
+			<a href="../login/index.html">Logout</a>
 		</nav>
 
 		<h2>Referred Candidates</h2>
