@@ -15,17 +15,17 @@ require 'data-validation.php';
 /* INSERTION */
 /*-----------*/
 
-/* This function inserts given candidate info into 'Unplaced Candidates' table. */
+/* This function inserts a given company and its details into the COMPANIES table. */
 function insertCompany($name,$username,$password){
 
 	/* We must first validate the information. */
 	/* If not valid, we return false. */
 
 	if(usernameIsValid($username) == false) {
-		return false;
+		return;
 	}
 	else if(passwordIsValid($password) == false) {
-		return false;
+		return;
 	}
 
 	/* Once everything is set, we insert into SQL table. */
@@ -45,14 +45,65 @@ function insertCompany($name,$username,$password){
 
 	} catch (PDOException $exception) {
 		echo "Exception Thrown (company-listings.php/insertCompany): $exception";
-		return false;
 	}
-
-	/* If successful, we return true. */
-	return true;
 
 }
 
-echo insertCompany('arjun','arjun1001','arjun1001');
+/*-----------*/
+/* RETRIEVAL */
+/*-----------*/
+
+/* This function retrieves the information about companies from the COMPANIES table. */
+function getCompanies() {
+
+	try {
+
+		$connection = getConnection(); //Creates connection.
+		$sqlstmt = "SELECT* FROM COMPANIES;";
+
+		$results = executeQuery($connection, $sqlstmt);
+		$connection = NULL; //Closes connection.
+
+		$id = array();
+		$name = array();
+		$username = array();
+		$password = array();
+
+		foreach ($results as $row) {
+			array_push($id,$row['ID']);
+			array_push($name,$row['NAME']);
+			array_push($username,$row['USERNAME']);
+			array_push($password,$row['PASSWORD']);
+		}
+
+		return array($id,$name,$username,$password);
+
+	} catch (PDOException $exception) {
+		echo "Exception Thrown (company-listings.php/getCompanies): $exception";
+	}
+
+}
+
+/*----------*/
+/* DELETION */
+/*----------*/
+
+/* This function deletes a company and its details from the COMPANIES table. */
+function deleteCompany($companyId) {
+
+	try{
+
+		$connection = getConnection();
+		$sqlstmt = "DELETE FROM COMPANIES WHERE ID = $companyId;";
+	
+		$sql = $connection->prepare($sqlstmt);
+		$sql->execute();
+		$connection = NULL;
+
+	} catch (PDOException $exception) {
+		echo "Exception Thrown (company-listings.php/deleteCompany): $exception";
+	}
+
+}
 
 ?>
