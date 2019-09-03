@@ -1,52 +1,44 @@
--- MySQL dump 10.13  Distrib 5.7.27, for Linux (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: BUILDERS_ASSOCIATION
--- ------------------------------------------------------
--- Server version	5.7.27-0ubuntu0.18.04.1
+-- Host: localhost
+-- Generation Time: Sep 03, 2019 at 09:55 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 7.1.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `BUILDERS_ASSOCIATION`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `COMPANIES`
 --
 
-DROP TABLE IF EXISTS `COMPANIES`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `COMPANIES` (
-  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `ID` int(10) NOT NULL,
   `NAME` varchar(60) NOT NULL,
-  `USERNAME` varchar(50) UNIQUE NOT NULL,
-  `PASSWORD` varchar(100) NOT NULL,
-  PRIMARY KEY (`ID`)
+  `USERNAME` varchar(50) NOT NULL,
+  `PASSWORD` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `COMPANIES`
---
-
-LOCK TABLES `COMPANIES` WRITE;
-/*!40000 ALTER TABLE `COMPANIES` DISABLE KEYS */;
-/*!40000 ALTER TABLE `COMPANIES` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `PLACED_CANDIDATES`
 --
 
-DROP TABLE IF EXISTS `PLACED_CANDIDATES`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `PLACED_CANDIDATES` (
   `ID` bigint(20) NOT NULL,
   `NAME` varchar(60) NOT NULL,
@@ -54,29 +46,17 @@ CREATE TABLE `PLACED_CANDIDATES` (
   `EMAIL` varchar(40) NOT NULL,
   `QUALIFICATION` enum('DIPLOMA','BACHELORS','SCHOOL') NOT NULL,
   `RESUME` varchar(50) NOT NULL,
-  `COMPANY` varchar(10) NOT NULL,
-  PRIMARY KEY (`ID`)
+  `COMPANY` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `PLACED_CANDIDATES`
---
-
-LOCK TABLES `PLACED_CANDIDATES` WRITE;
-/*!40000 ALTER TABLE `PLACED_CANDIDATES` DISABLE KEYS */;
-/*!40000 ALTER TABLE `PLACED_CANDIDATES` ENABLE KEYS */;
-UNLOCK TABLES;
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `UNPLACED_CANDIDATES`
 --
 
-DROP TABLE IF EXISTS `UNPLACED_CANDIDATES`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `UNPLACED_CANDIDATES` (
-  `ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `ID` bigint(20) NOT NULL,
   `NAME` varchar(60) NOT NULL,
   `NUMBER` varchar(10) NOT NULL,
   `EMAIL` varchar(40) NOT NULL,
@@ -84,28 +64,47 @@ CREATE TABLE `UNPLACED_CANDIDATES` (
   `RESUME` varchar(50) NOT NULL,
   `REJECTED_COMPANIES` varchar(400) NOT NULL,
   `REFERRED_COMPANY` varchar(10) DEFAULT NULL,
-  `PLACED` bit(1) NOT NULL,
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `NUMBER` (`NUMBER`)
+  `PLACED` int(5) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `UNPLACED_CANDIDATES`
+-- Indexes for dumped tables
 --
 
-LOCK TABLES `UNPLACED_CANDIDATES` WRITE;
-/*!40000 ALTER TABLE `UNPLACED_CANDIDATES` DISABLE KEYS */;
-/*!40000 ALTER TABLE `UNPLACED_CANDIDATES` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+--
+-- Indexes for table `COMPANIES`
+--
+ALTER TABLE `COMPANIES`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `USERNAME` (`USERNAME`);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indexes for table `PLACED_CANDIDATES`
+--
+ALTER TABLE `PLACED_CANDIDATES`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `UNPLACED_CANDIDATES`
+--
+ALTER TABLE `UNPLACED_CANDIDATES`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `NUMBER` (`NUMBER`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `COMPANIES`
+--
+ALTER TABLE `COMPANIES`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `UNPLACED_CANDIDATES`
+--
+ALTER TABLE `UNPLACED_CANDIDATES`
+  MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2019-08-20  3:18:25
