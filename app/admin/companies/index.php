@@ -54,7 +54,7 @@ while($iter < $noOfCompanies) {
 		<nav>
 			<a href="">Manage Companies</a><a
 			href="../home/index.php">Candidates List</a><a
-			href="../login/index.html">Logout</a>
+			href="../login/logout.php">Logout</a>
 		</nav>
 
 		<!-- The options for filtering present as a form. -->

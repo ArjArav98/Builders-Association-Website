@@ -50,7 +50,7 @@ while($iterator < $length) {
 		<nav>
 			<a href="../companies/index.php">Manage Companies</a><a
 			href="">Candidates List</a><a
-			href="../login/index.html">Logout</a>
+			href="../login/logout.php">Logout</a>
 		</nav>
 
 		<!-- The options for filtering present as a form. -->
