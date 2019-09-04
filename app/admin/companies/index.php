@@ -1,3 +1,45 @@
+<?php
+
+/*****************************/
+/* ADMIN-COMPANIES-INDEX.PHP */
+/*****************************/
+
+/* This file loads the list of existing companies on the page. */
+
+/* We start the session and include the necessary libraries. */
+session_start();
+require '../../../company-listings.php';
+
+/* We get the list of companies which have been created by the admin which are currently in the database. */
+$companies = getCompanies();
+
+/* We generate the HTML string for the list of companies. */
+$iter = 0;
+$noOfCompanies = sizeof($companies[0]);
+$html = "";
+
+while($iter < $noOfCompanies) {
+	$html .= "<div class='company'>
+			<p>
+				<span class='cell-value alternative-cl'>".$companies[0][$iter]."</span>
+				<span class='cell-value cell-value-bg-bg'>".$companies[1][$iter]."</span>
+				<span class='cell-value cell-value-bg alternative-cl'>".$companies[2][$iter]."</span>
+				<span class='cell-value cell-value-bg'>".$companies[3][$iter]."</span>
+			</p>
+			<form class='company-form'>
+				<input type='hidden' value='".$companies[0][$iter]."'>
+				<button type='submit'>Delete</button>
+			</form>
+		</div>";
+	
+	$iter += 1;
+}
+
+/*******/
+/* END */
+/*******/
+
+?>
 <!DOCTYPE html>
 
 	<head>
@@ -26,33 +68,7 @@
 
 		<!-- The list of candidates will be displayed here. -->
 		<div class="companies-list">
-
-			<div class='company'>
-				<p>
-					<span class='cell-value alternative-cl'>1011</span>
-					<span class='cell-value cell-value-bg-bg'>Sri Venkateswara College of Engineering</span>
-					<span class='cell-value cell-value-bg alternative-cl'>svce1</span>
-					<span class='cell-value cell-value-bg'>hellosvce1</span>
-				</p>
-				<form class='company-form'>
-					<input type='hidden' value='1011'>
-					<button type='submit'>Delete</button>
-				</form>
-			</div>
-
-			<div class='company'>
-				<p>
-					<span class='cell-value alternative-cl'>1011</span>
-					<span class='cell-value cell-value-bg-bg'>Sri Venkateswara College of Engineering</span>
-					<span class='cell-value cell-value-bg alternative-cl'>svce1</span>
-					<span class='cell-value cell-value-bg'>hellosvce1</span>
-				</p>
-				<form class='company-form'>
-					<input type='hidden' value='1011'>
-					<button type='submit'>Delete</button>
-				</form>
-			</div>
-
+			<?php echo $html; ?>
 		</div>
 
 	</body>

@@ -7,9 +7,9 @@
 /* This file contains functions necessary for manipulating, inserting and deleting records in the company listings. */
 
 /* We import the necessary php libraries. */
-require 'sql-connections.php';
-require 'sql-functions.php';
-require 'data-validation.php';
+require '../../../sql-connections.php';
+require '../../../sql-functions.php';
+require '../../../data-validation.php';
 
 /*-----------*/
 /* INSERTION */
@@ -59,7 +59,7 @@ function getCompanies() {
 	try {
 
 		$connection = getConnection(); //Creates connection.
-		$sqlstmt = "SELECT* FROM COMPANIES;";
+		$sqlstmt = "SELECT* FROM COMPANIES ORDER BY NAME ASC;"; //We get it alphabetcially sorted.
 
 		$results = executeQuery($connection, $sqlstmt);
 		$connection = NULL; //Closes connection.
