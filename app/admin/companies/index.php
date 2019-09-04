@@ -8,7 +8,7 @@
 
 /* We start the session and include the necessary libraries. */
 session_start();
-require '../../../company-listings.php';
+require '../../../src/company-listings.php';
 
 /* We get the list of companies which have been created by the admin which are currently in the database. */
 $companies = getCompanies();
@@ -26,8 +26,8 @@ while($iter < $noOfCompanies) {
 				<span class='cell-value cell-value-bg alternative-cl'>".$companies[2][$iter]."</span>
 				<span class='cell-value cell-value-bg'>".$companies[3][$iter]."</span>
 			</p>
-			<form class='company-form'>
-				<input type='hidden' value='".$companies[0][$iter]."'>
+			<form method='post' class='company-form' action='delete-company.php'>
+				<input type='hidden' name='companyId' value='".$companies[0][$iter]."'>
 				<button type='submit'>Delete</button>
 			</form>
 		</div>";
@@ -58,7 +58,7 @@ while($iter < $noOfCompanies) {
 		</nav>
 
 		<!-- The options for filtering present as a form. -->
-		<form method="post" class="manage-company-form">
+		<form method="post" class="manage-company-form" action="add-company.php">
 			<h2>Add Companies</h2>
 			<input type="text" name="name" placeholder="Company Name">
 			<input type="text" name="username" placeholder="Username">

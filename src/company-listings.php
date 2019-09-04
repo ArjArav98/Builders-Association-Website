@@ -7,9 +7,9 @@
 /* This file contains functions necessary for manipulating, inserting and deleting records in the company listings. */
 
 /* We import the necessary php libraries. */
-require '../../../sql-connections.php';
-require '../../../sql-functions.php';
-require '../../../data-validation.php';
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/data-validation.php';
 
 /*-----------*/
 /* INSERTION */
