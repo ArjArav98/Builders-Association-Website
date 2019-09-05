@@ -70,18 +70,6 @@ form {
 	color: #2196f3;
 }
 
-input {
-	width: 25%;
-
-	margin: 1%;
-	padding: 0.5%;
-
-	border: 2px solid #2196f3;
-	font-size: 105%;
-	font-weight: 600;
-	color: #2196f3
-}
-
 select {
 	width: 26.5%;
 	margin: 1%;
@@ -89,9 +77,10 @@ select {
 
 h2 {
 	display: block;
-	margin: 0% 0% 1.5% 0%;
+	margin: 8% 0% 2.5% 0%;
 	width: 100%;
 	
+	color: #2196f3;
 	text-align: center;
 }
 
@@ -126,14 +115,14 @@ button:hover {
 	display: block;
 	width: 100%;
 
-	margin: 2% 0%;
+	margin: 3% 0% 2% 0%;
 }
 
 .candidate {
 	display: block;
 	width: 100%;
 
-	margin: 0 auto;
+	margin: 0.5% auto;
 }
 
 .candidate p {
@@ -145,31 +134,42 @@ button:hover {
 
 .candidate-form {
 	display: inline-block;
-	width: 29%;
+	width: 14.5%;
 
 	background-color: transparent;
 }
 
-.candidate-form input {
-	display: inline-block;
-	margin: 0% 0%;
-	padding: 2% 0%;
-	width: 45%;
-
-	background-color: #2196f3;
-	color: white;
-	text-align: center;
-}
-
 .candidate-form button {
 	display: inline-block;
-	padding: 1.4% 0%;
-	width: 48%;
+	padding: 2.7% 0%;
+	width: 95%;
+}
+
+.place button {
+	border: 2px solid #00FF00;
+	background-color: white;
+	color: #00FF00;
+}
+
+.place button:hover {
+	background-color: #00FF00;
+	color: white;
+}
+
+.reject button {
+	border: 2px solid red;
+	background-color: white;
+	color: red;
+}
+
+.reject button:hover {
+	background-color: red;
+	color: white;
 }
 
 .cell-value {
 	display: inline-block;
-	width: 12%;
+	width: 19%;
 
 	padding: 1%;
 

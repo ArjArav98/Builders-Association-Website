@@ -21,9 +21,9 @@ $HTML = "";
 while($iterator < $length) {
 
 	$HTML .= "<div class='candidate'>";
-	$HTML .= "<p><span class='cell-value cell-value-bg'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span><span class='cell-value cell-value-bg'>".$results[3][$iterator]."</span><span class='cell-value'>".$results[4][$iterator]."</span>";
-	$HTML .= "<form method='get' action='place-candidate.php' class='candidate-form'><input type='hidden' name='candidateId' value='".$results[0][$iterator]."'><button type='submit'>Place</button></form><form method='get' action='reject-candidate.php' class='candidate-form'><input type='hidden' name='candidateId' value='".$results[0][$iterator]."'><button type='submit'>Reject</button></form>";
-	$HTML .= "</p></div>";
+	$HTML .= "<p><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span><span class='cell-value alternative-cl'>".$results[3][$iterator]."</span><span class='cell-value cell-value-bg'>".$results[4][$iterator]."</span></p>";
+	$HTML .= "<form method='get' action='place-candidate.php' class='candidate-form place'><input type='hidden' name='candidateId' value='".$results[0][$iterator]."'><button type='submit'>Place</button></form><form method='get' action='reject-candidate.php' class='candidate-form reject'><input type='hidden' name='candidateId' value='".$results[0][$iterator]."'><button type='submit'>Reject</button></form>";
+	$HTML .= "</div>";
 
 	$iterator += 1;
 }
