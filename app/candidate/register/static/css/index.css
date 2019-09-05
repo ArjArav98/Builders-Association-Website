@@ -74,13 +74,5 @@ button {
 }
 
 .resume {
-	margin: 3% auto 1% auto;
-
-	background-color: #2196f3;
-	color: white;
-}
-
-.resume:hover {
-	background-color: white;
-	color: #2196f3;
+	width: 56%;
 }
