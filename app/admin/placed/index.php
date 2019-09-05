@@ -12,7 +12,7 @@ require '../../../src/candidate-listings.php';
 
 /* We get the required list of candidates from the database using the search options. */
 /* These search options are present as SESSION variables. */
-$results = getCandidate($_SESSION["SEARCH_NAME"], $_SESSION["SEARCH_NUMBER"], $_SESSION["SEARCH_EMAIL"], $_SESSION["SEARCH_QUALIFICATION"], NULL, 0, 0, 1);
+$results = getCandidate($_SESSION["SEARCH_NAME"], $_SESSION["SEARCH_NUMBER"], $_SESSION["SEARCH_EMAIL"], $_SESSION["SEARCH_QUALIFICATION"], NULL, 1, 0, 1);
 
 $iterator = 0;
 $length = sizeof($results[0]);
@@ -37,7 +37,7 @@ while($iterator < $length) {
 <!DOCTYPE html>
 
 	<head>
-		<title>Admin - Home | Builders Association</title>
+		<title>Admin - Placed Candidates | Builders Association</title>
 		<link href="static/css/index1.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
@@ -49,7 +49,7 @@ while($iterator < $length) {
 
 		<nav>
 			<a href="">Unplaced Candidates</a><a
-			href="../placed/index.php">Placed Candidates</a><a
+			href="../home/index.php">Placed Candidates</a><a
 			href="../companies/index.php">Manage Companies</a><a
 			href="../login/logout.php">Logout</a>
 		</nav>

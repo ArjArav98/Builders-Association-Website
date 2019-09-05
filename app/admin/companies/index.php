@@ -52,8 +52,9 @@ while($iter < $noOfCompanies) {
 		<!-- This page contains options for adding usernames and password for companies. -->
 
 		<nav>
-			<a href="">Manage Companies</a><a
-			href="../home/index.php">Candidates List</a><a
+			<a href="../home/index.php">Unplaced Candidates</a><a
+			href="../placed/index.php">Placed Candidates</a><a
+			href="">Manage Companies</a><a
 			href="../login/logout.php">Logout</a>
 		</nav>
 

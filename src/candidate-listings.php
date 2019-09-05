@@ -69,15 +69,23 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 
 	$sqlstmt = "";
 
-	//We first check if the full profile is needed to be viewed or not.
+	/* We first check if the full profile is needed to be viewed or not. */
 	if($viewFullProfile == 0) {
-		$sqlstmt = "SELECT ID, NAME, QUALIFICATION, EXPERIENCE, DISTRICT FROM UNPLACED_CANDIDATES WHERE ";
+		$sqlstmt = "SELECT ID, NAME, QUALIFICATION, EXPERIENCE, DISTRICT ";
 	}
 	else {
-		$sqlstmt = "SELECT ID, NAME, NUMBER, EMAIL, QUALIFICATION, EXPERIENCE, DISTRICT, RESUME FROM UNPLACED_CANDIDATES WHERE ";
+		$sqlstmt = "SELECT ID, NAME, NUMBER, EMAIL, QUALIFICATION, EXPERIENCE, DISTRICT, RESUME ";
 	}
 
-	//We check for NAME.
+	/* We check if the candidate is placed or not. */
+	if($placed == 0) {
+		$sqlstmt .= "FROM UNPLACED_CANDIDATES WHERE ";
+	}
+	else {
+		$sqlstmt .= "FROM PLACED_CANDIDATES WHERE ";
+	}
+
+	/* We check for NAME. */
 	if($name != NULL) {
 		$sqlstmt .= "NAME LIKE  '%$name%' ";
 	}
@@ -85,35 +93,30 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 		$sqlstmt .= "NAME LIKE '%' ";
 	}
 
-	//We check for NUMBER.
+	/* We check for NUMBER. */
 	if($number != NULL) {
 		$sqlstmt .= "AND NUMBER LIKE '%$number%' ";
 	}
 
-	//We check for EMAIL.
+	/* We check for EMAIL. */
 	if($email != NULL) {
 		$sqlstmt .= "AND EMAIL LIKE '%$email%' ";
 	}
 
-	//We check for QUALIFICATION.
+	/* We check for QUALIFICATION. */
 	if($qualification != NULL) {
 		$sqlstmt .= "AND QUALIFICATION LIKE '%$qualification%' ";
 	}
 
-	//We check for REFERRED_COMPANY.
-	if($referred == NULL) {
+	/* We Check for REFERRED_COMPANY. */
+	if($referred == NULL && $placed == 0) {
 		$sqlstmt .= "AND REFERRED_COMPANY IS NULL ";
 	}
-	if($referred != NULL) {
+	if($referred != NULL && $placed == 0) {
 		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
 	}
 
-	//We check for the PLACED column.
-	if($placed == 0 || $placed == 1) {
-		$sqlstmt .= "AND PLACED = $placed ";
-	}
-
-	//We now construct for the Pagination Limit.
+	/* We now construct for the Pagination Limit. */
 	$paginationNum *= 100;
 	$sqlstmt .= "LIMIT ".($paginationNum-100).",".($paginationNum).";";
 
