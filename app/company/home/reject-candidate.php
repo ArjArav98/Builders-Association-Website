@@ -7,7 +7,7 @@
 session_start();
 require '../../../src/candidate-listings.php';
 
-$candidateId = $_GET['candidateId'];
+$candidateId = $_POST['candidateId'];
 
 rejectCandidate($candidateId);
 

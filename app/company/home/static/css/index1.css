@@ -125,7 +125,7 @@ button:hover {
 	margin: 0.5% auto;
 }
 
-.candidate p {
+.candidate a {
 	display: inline-block;
 	width: 70%;
 

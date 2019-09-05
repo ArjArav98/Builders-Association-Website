@@ -11,7 +11,7 @@ session_start();
 require '../../../src/candidate-listings.php';
 
 /* We get the required list of candidates from the database using the search options. */
-$results = getCandidate(NULL, NULL, NULL, $_SESSION['COMPANY_ID'], 1, 0, 1);
+$results = getCandidate(NULL, NULL, NULL, NULL, $_SESSION['COMPANY_ID'], 1, 0, 1);
 
 $iterator = 0;
 $length = sizeof($results[0]);
@@ -21,7 +21,7 @@ $HTML = "";
 while($iterator < $length) {
 
 	$HTML .= "<div class='candidate'>";
-	$HTML .= "<p><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span><span class='cell-value alternative-cl'>".$results[3][$iterator]."</span><span class='cell-value cell-value-bg'>".$results[4][$iterator]."</span></p>";
+	$HTML .= "<a href='../../candidate/details/index.php?q=".$results[0][$iterator]."&placed=1&referred=0'><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span><span class='cell-value alternative-cl'>".$results[3][$iterator]."</span><span class='cell-value cell-value-bg'>".$results[4][$iterator]."</span></a>";
 	$HTML .= "</div>";
 
 	$iterator += 1;

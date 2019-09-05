@@ -12,7 +12,7 @@ require '../../../src/candidate-listings.php';
 
 /* We get the required list of candidates from the database using the search options. */
 /* These search options are present as SESSION variables. */
-$results = getCandidate($_SESSION["SEARCH_QUALIFICATION"], $_SESSION["SEARCH_EXPERIENCE"], $_SESSION["SEARCH_DISTRICT"], NULL, 1, 0, 1);
+$results = getCandidate(NULL, $_SESSION["SEARCH_QUALIFICATION"], $_SESSION["SEARCH_EXPERIENCE"], $_SESSION["SEARCH_DISTRICT"], NULL, 1, 0, 1);
 
 $iterator = 0;
 $length = sizeof($results[0]);
@@ -21,9 +21,9 @@ $HTML = "";
 /* We iterate over the array and generate a HTML string. */
 while($iterator < $length) {
 	$HTML .= "<div class='candidate'>";
-	$HTML .= "<p><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[3][$iterator]."</span><span class='cell-value cell-value-bg-bg alternative-cl'>".$results[4][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span></p>";
+	$HTML .= "<a href='../../candidate/details/index.php?q=".$results[0][$iterator]."&placed=1&referred=0'><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[3][$iterator]."</span><span class='cell-value cell-value-bg-bg alternative-cl'>".$results[4][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span></a>";
 	$HTML .= "<form method='get' action='refer-company.php' class='candidate-form refer-form'><input type='text' name='companyid' placeholder='Company ID'><input type='hidden' name='candidateid' value='".$results[0][$iterator]."'><button type='submit'>Refer</button></form>";
-	$HTML .= "</div>";
+	$HTML .= "</26>";
 
 	$iterator += 1;
 }

@@ -59,7 +59,7 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 
 
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
-function getCandidate($qualification=NULL, $experience=NULL, $district=NULL, $referred=NULL, $placed=0, $viewFullProfile=0, $paginationNum = 1) {
+function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district=NULL, $referred=NULL, $placed=0, $viewFullProfile=0, $paginationNum = 1) {
 
 	/* We must first construct an SQL statement using the options passed in. */
 	/* We construct the SQL statement by checking the options with if conditions. */
@@ -88,6 +88,11 @@ function getCandidate($qualification=NULL, $experience=NULL, $district=NULL, $re
 	}
 	else {
 		$sqlstmt .= "QUALIFICATION LIKE '%' ";
+	}
+
+	/* We check if some ID is there. */
+	if($id != NULL) {
+		$sqlstmt .= "AND ID = $id ";
 	}
 
 	/* We check for EXPERIENCE. */

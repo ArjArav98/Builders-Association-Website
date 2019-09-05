@@ -131,7 +131,7 @@ button {
 	margin: 0.25% auto;
 }
 
-.candidate p {
+.candidate a {
 	display: inline-block;
 	width: 70%;
 
