@@ -10,16 +10,9 @@
 session_start();
 
 /* We store the necessary filtering options in SESSION variables. */
-$_SESSION["SEARCH_NAME"] = $_GET["name"];
-$_SESSION["SEARCH_NUMBER"] = $_GET["number"];
-$_SESSION["SEARCH_EMAIL"] = $_GET["email"];
-
-if($_REQUEST["qualification"] == "NULL"){
-	$_SESSION["SEARCH_QUALIFICATION"] = NULL;
-}
-else {
-	$_SESSION["SEARCH_QUALIFICATION"] = $_REQUEST["qualification"];
-}
+$_SESSION["SEARCH_QUALIFICATION"] = $_GET["qualification"];
+$_SESSION["SEARCH_EXPERIENCE"] = $_GET["experience"];
+$_SESSION["SEARCH_DISTRICT"] = $_GET["district"];
 
 /* We finally redirect to the 'ADMIN HOME' page. */
 /* We use a 303-code to implement GET-GET-Redirect. */

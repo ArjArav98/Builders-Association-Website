@@ -23,10 +23,9 @@ $password = $_REQUEST['password'];
 if(login($username,$password,false) == true) {
 
 	/* We set the SESSION variables for filtering options to false. */
-	$_SESSION["SEARCH_NAME"] = NULL;
-	$_SESSION["SEARCH_NUMBER"] = NULL;
-	$_SESSION["SEARCH_EMAIL"] = NULL;
 	$_SESSION["SEARCH_QUALIFICATION"] = NULL;
+	$_SESSION["SEARCH_EXPERIENCE"] = NULL;
+	$_SESSION["SEARCH_DISTRICT"] = NULL;
 
 	/* We redirect to the 'ADMIN HOME' page. */
 	header('Location: ../home/index.php', true, 303);

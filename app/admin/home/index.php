@@ -1,8 +1,8 @@
 <?php
 
-/*************/
-/* INDEX.PHP */
-/*************/
+/******************/
+/* HOME-INDEX.PHP */
+/******************/
 
 /* This file contains code required to load the home page for the admins. */
 
@@ -12,7 +12,7 @@ require '../../../src/candidate-listings.php';
 
 /* We get the required list of candidates from the database using the search options. */
 /* These search options are present as SESSION variables. */
-$results = getCandidate($_SESSION["SEARCH_NAME"], $_SESSION["SEARCH_NUMBER"], $_SESSION["SEARCH_EMAIL"], $_SESSION["SEARCH_QUALIFICATION"], NULL, 0, 0, 1);
+$results = getCandidate($_SESSION["SEARCH_QUALIFICATION"], $_SESSION["SEARCH_EXPERIENCE"], $_SESSION["SEARCH_DISTRICT"], NULL, 0, 0, 1);
 
 $iterator = 0;
 $length = sizeof($results[0]);
@@ -57,14 +57,57 @@ while($iterator < $length) {
 		<!-- The options for filtering present as a form. -->
 		<form method="get" action="admin-filter.php" class="search-form">
 			<h2><i class="material-icons">search</i> Filter Candidates</h2>
-			<input type="text" name="name" placeholder="Name">
-			<input type="number" name="number" placeholder="Phone Number"><br>
-			<input type="email" name="email" placeholder="Email">
 			<select name="qualification">
-				<option value="NULL">Qualification</option>
+				<option value="">Qualification</option>
 				<option value="DIPLOMA">Diploma</option>
 				<option value="BACHELORS">Bachelors</option>
 				<option value="SCHOOL">School</option>
+			</select>
+			<select name="experience">
+				<option value="">Experience</option>
+				<option value="FRESHER">Fresher</option>
+				<option value="0-5 YEARS">0-5 Years</option>
+				<option value="5+ YEARS">5+ Years</option>
+			</select>
+			<select name="district">
+				<option value="">Select District/Locality</option>
+				<option value="ARIYALUR">Ariyalur</option>
+				<option value="CHENGALPATTU">Chengalpattu</option>
+				<option value="CHENNAI">Chennai</option>
+				<option value="COIMBATORE">Coimbatore</option>
+				<option value="CUDDALORE">Cuddalore</option>
+				<option value="DHARMAPURI">Dharmapuri</option>
+				<option value="DINDIGUL">Dindigul</option>
+				<option value="ERODE">Erode</option>
+				<option value="KALLAKURICHI">Kallakurichi</option>
+				<option value="KANCHIPURAM">Kanchipuram</option>
+				<option value="KANNIYAKUMARI">Kanniyakumari</option>
+				<option value="KARUR">Karur</option>
+				<option value="KRISHNAGIRI">Krishnagiri</option>
+				<option value="MADURAI">Madurai</option>
+				<option value="NAGAPPATINAM">Nagapattinam</option>
+				<option value="NAMAKKAL">Namakkal</option>
+				<option value="NILGIRIS">Nilgiris</option>
+				<option value="PERAMBALUR">Perambalur</option>
+				<option value="PUDUKOTTAI">Pudukottai</option>
+				<option value="RAMANATHAPURAM">Ramanathapuram</option>
+				<option value="RANIPET">Ranipet</option>
+				<option value="SALEM">Salem</option>
+				<option value="SIVAGANGA">Sivaganga</option>
+				<option value="TENKASI">Tenkasi</option>
+				<option value="THANJAVUR">Thanjavur</option>
+				<option value="THENI">Theni</option>
+				<option value="THOOTHUKUDI">Thoothukudi</option>
+				<option value="TIRUCHIRAPALLI">Tiruchirapalli</option>
+				<option value="TIRUNELVELI">Tirunelveli</option>
+				<option value="TIRUPATHUR">Tirupathur</option>
+				<option value="TIRUPPUR">Tiruppur</option>
+				<option value="TIRUVALLUR">Tiruvallur</option>
+				<option value="TIRUVANNAMALAI">Tiruvannamalai</option>
+				<option value="TIRUVARUR">Tiruvarur</option>
+				<option value="VELLORE">Vellore</option>
+				<option value="VILLUPURAM">Villupuram</option>
+				<option value="VIRUDHUNAGAR">Virudhunagar</option>
 			</select><br>
 			<button type="submit">Search!</button>
 		</form>

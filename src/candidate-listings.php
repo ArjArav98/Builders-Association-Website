@@ -62,7 +62,7 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 
 
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
-function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL, $referred=NULL, $placed=0, $viewFullProfile=0, $paginationNum = 1) {
+function getCandidate($qualification=NULL, $experience=NULL, $district=NULL, $referred=NULL, $placed=0, $viewFullProfile=0, $paginationNum = 1) {
 
 	/* We must first construct an SQL statement using the options passed in. */
 	/* We construct the SQL statement by checking the options with if conditions. */
@@ -85,33 +85,25 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 		$sqlstmt .= "FROM PLACED_CANDIDATES WHERE ";
 	}
 
-	/* We check for NAME. */
-	if($name != NULL) {
-		$sqlstmt .= "NAME LIKE  '%$name%' ";
-	}
-	else {
-		$sqlstmt .= "NAME LIKE '%' ";
-	}
-
-	/* We check for NUMBER. */
-	if($number != NULL) {
-		$sqlstmt .= "AND NUMBER LIKE '%$number%' ";
-	}
-
-	/* We check for EMAIL. */
-	if($email != NULL) {
-		$sqlstmt .= "AND EMAIL LIKE '%$email%' ";
-	}
-
 	/* We check for QUALIFICATION. */
 	if($qualification != NULL) {
-		$sqlstmt .= "AND QUALIFICATION LIKE '%$qualification%' ";
+		$sqlstmt .= "QUALIFICATION = '$qualification' ";
+	}
+	else {
+		$sqlstmt .= "QUALIFICATION LIKE '%'";
+	}
+
+	/* We check for EXPERIENCE. */
+	if($experience != NULL) {
+		$sqlstmt .= "AND EXPERIENCE = '$experience' ";
+	}
+
+	/* We check for DISTRICT. */
+	if($district != NULL) {
+		$sqlstmt .= "AND DISTRICT = '$district' ";
 	}
 
 	/* We Check for REFERRED_COMPANY. */
-	if($referred == NULL && $placed == 0) {
-		$sqlstmt .= "AND REFERRED_COMPANY IS NULL ";
-	}
 	if($referred != NULL && $placed == 0) {
 		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
 	}
