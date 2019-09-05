@@ -90,7 +90,7 @@ function getCandidate($qualification=NULL, $experience=NULL, $district=NULL, $re
 		$sqlstmt .= "QUALIFICATION = '$qualification' ";
 	}
 	else {
-		$sqlstmt .= "QUALIFICATION LIKE '%'";
+		$sqlstmt .= "QUALIFICATION LIKE '%' ";
 	}
 
 	/* We check for EXPERIENCE. */
@@ -104,6 +104,9 @@ function getCandidate($qualification=NULL, $experience=NULL, $district=NULL, $re
 	}
 
 	/* We Check for REFERRED_COMPANY. */
+	if($referred == NULL && $placed == 0) {
+		$sqlstmt .= "AND REFERRED_COMPANY IS NULL ";
+	}
 	if($referred != NULL && $placed == 0) {
 		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
 	}
