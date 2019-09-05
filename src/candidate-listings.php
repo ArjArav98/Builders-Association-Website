@@ -21,13 +21,13 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 	/* We must first validate the information. */
 	/* If not valid, we return false. */
 	if(numberIsValid($number) == false) {
-		return false;
+		return;
 	}
 	else if(numberDoesntExist($number) == false) {
-		return false;
+		return;
 	}
 	else if(emailIsValid($email) == false) {
-		return false;
+		return;
 	}
 
 	/* We initialise the following values. */
@@ -54,9 +54,6 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 	} catch (PDOException $exception) {
 		echo "Exception Thrown (candidate-listings.php/insertCandidate): $exception";
 	}
-
-	/* If successful, we return true. */
-	return true;
 
 }
 
@@ -171,8 +168,6 @@ function getCandidate($qualification=NULL, $experience=NULL, $district=NULL, $re
 	} catch (PDOException $exception) {
 		echo "Exception Thrown (candidate-listings.php/getCandidate): $exception";
 	}
-
-	return false; //In case something goes wrong.
 
 }
 
