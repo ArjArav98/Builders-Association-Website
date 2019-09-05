@@ -22,8 +22,7 @@ $HTML = "";
 while($iterator < $length) {
 	$HTML .= "<div class='candidate'>";
 	$HTML .= "<a href='../../candidate/details/index.php?q=".$results[0][$iterator]."&placed=1&referred=0'><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[3][$iterator]."</span><span class='cell-value cell-value-bg-bg alternative-cl'>".$results[4][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span></a>";
-	$HTML .= "<form method='get' action='refer-company.php' class='candidate-form refer-form'><input type='text' name='companyid' placeholder='Company ID'><input type='hidden' name='candidateid' value='".$results[0][$iterator]."'><button type='submit'>Refer</button></form>";
-	$HTML .= "</26>";
+	$HTML .= "</div>";
 
 	$iterator += 1;
 }
