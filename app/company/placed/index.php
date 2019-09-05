@@ -1,8 +1,8 @@
 <?php
 
-/*************/
-/* INDEX.PHP */
-/*************/
+/****************************/
+/* COMPANY-PLACED-INDEX.PHP */
+/****************************/
 
 /* This file loads the necessary information for the 'COMPANY-HOME' page. */
 
@@ -47,7 +47,7 @@ while($iterator < $length) {
 		<nav>
 			<a href="../home/index.php">Referred Candidates</a><a
 			href="">Placed Candidates</a><a
-			href="#">Logout</a>
+			href="../login/logout.php">Logout</a>
 		</nav>
 
 		<h2>Candidates Placed</h2>
