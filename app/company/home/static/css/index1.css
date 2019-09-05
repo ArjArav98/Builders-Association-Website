@@ -147,22 +147,12 @@ button:hover {
 
 .place button {
 	border: 2px solid #00FF00;
-	background-color: white;
-	color: #00FF00;
-}
-
-.place button:hover {
 	background-color: #00FF00;
 	color: white;
 }
 
 .reject button {
 	border: 2px solid red;
-	background-color: white;
-	color: red;
-}
-
-.reject button:hover {
 	background-color: red;
 	color: white;
 }

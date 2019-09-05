@@ -62,16 +62,11 @@ button {
 
 	border: none;
 	border: 2px solid #2196f3;
-	background-color: white;
-	color: #2196f3;
+	background-color: #2196f3;
+	color: white;
 
 	cursor: pointer;
 	transition: all 0.2s;
-}
-
-button:hover {
-	background-color: #2196f3;
-	color: white;
 }
 
 .resume {
