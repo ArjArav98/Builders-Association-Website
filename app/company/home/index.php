@@ -11,7 +11,7 @@ session_start();
 require '../../../src/candidate-listings.php';
 
 /* We get the required list of candidates from the database using the search options. */
-$results = getCandidate(NULL, NULL, NULL, NULL, $_SESSION['COMPANY_ID'], 0, 1);
+$results = getCandidate(NULL, NULL, NULL, $_SESSION['COMPANY_ID'], 0, 0, 1);
 
 $iterator = 0;
 $length = sizeof($results[0]);
@@ -43,9 +43,12 @@ while($iterator < $length) {
 
 	<body>
 
+		<!-- This page will have a list of referred candidates for the company. -->
+
 		<nav>
-			<a href="">Referred Candidates List</a>
-			<a href="../login/index.html">Logout</a>
+			<a href="">Referred Candidates</a><a
+			href="#">Placed Candidates</a><a
+			href="#">Logout</a>
 		</nav>
 
 		<h2>Referred Candidates</h2>
