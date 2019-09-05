@@ -20,7 +20,6 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 
 	/* We must first validate the information. */
 	/* If not valid, we return false. */
-
 	if(numberIsValid($number) == false) {
 		return false;
 	}
@@ -32,16 +31,13 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 	}
 
 	/* We initialise the following values. */
-	
 	$resumeName = getCurrentAutoIncValue().".pdf";
-	$rejectedCompanies = "0000 ";
 
 	/* Once everything is set, we insert into SQL table. */
-
 	try {
 
 		$connection = getConnection();
-		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0);";
+		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, ?, REFERRED_COMPANY, 0);";
 
 		$sql = $connection->prepare($sqlstmt);
 		$sql->bindParam(1, $name);
@@ -51,7 +47,6 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 		$sql->bindParam(5, $experience);
 		$sql->bindParam(6, $district);
 		$sql->bindParam(7, $resumeName);
-		$sql->bindParam(8, $rejectedCompanies);
 		$sql->execute();
 
 		$connection = NULL;
@@ -205,14 +200,21 @@ function referCandidate($candidateId, $companyId){
 /* We refer the candidate to a particular company. */
 function placeCandidate($candidateId){
 
-	/* We simply update the REFERRED_COMPANY column of a candidate to that of the company's ID.*/
+	/* We must first extract details of the candidate from the UNPLACED_CANDIDATES table. */
+	/* We must then insert this as a row into the PLACED_CANDIDATES table. */
+	/* We then delete the candidate from the UNPLACED_CANDIDATES table. */
 	try {
 
 		$connection = getConnection();
-		$sqlstmt = "UPDATE UNPLACED_CANDIDATES SET PLACED=1 WHERE ID=$candidateId;";
 
+		$sqlstmt = "INSERT INTO PLACED_CANDIDATES (ID, NAME, NUMBER, EMAIL, QUALIFICATION, EXPERIENCE, DISTRICT, RESUME, COMPANY) SELECT ID, NAME, NUMBER, EMAIL, QUALIFICATION, EXPERIENCE, DISTRICT, RESUME, REFERRED_COMPANY FROM UNPLACED_CANDIDATES WHERE ID = $candidateId;";
 		$sql = $connection->prepare($sqlstmt);
 		$sql->execute();
+
+		$sqlstmt = "DELETE FROM UNPLACED_CANDIDATES WHERE ID = $candidateId;";
+		$sql = $connection->prepare($sqlstmt);
+		$sql->execute();
+
 		$connection = NULL;
 
 	} catch (PDOException $exception) {
