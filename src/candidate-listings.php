@@ -16,7 +16,7 @@ require '../../../src/data-validation.php';
 /*-----------*/
 
 /* This function inserts given candidate info into 'Unplaced Candidates' table. */
-function insertCandidate($name,$number,$email,$qualification){
+function insertCandidate($name,$number,$email,$qualification,$experience,$district){
 
 	/* We must first validate the information. */
 	/* If not valid, we return false. */
@@ -41,15 +41,17 @@ function insertCandidate($name,$number,$email,$qualification){
 	try {
 
 		$connection = getConnection();
-		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, 0, 0);";
+		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0);";
 
 		$sql = $connection->prepare($sqlstmt);
 		$sql->bindParam(1, $name);
 		$sql->bindParam(2, $number);
 		$sql->bindParam(3, $email);
 		$sql->bindParam(4, $qualification);
-		$sql->bindParam(5, $resumeName);
-		$sql->bindParam(6, $rejectedCompanies);
+		$sql->bindParam(5, $experience);
+		$sql->bindParam(6, $district);
+		$sql->bindParam(7, $resumeName);
+		$sql->bindParam(8, $rejectedCompanies);
 		$sql->execute();
 
 		$connection = NULL;

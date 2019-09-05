@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+	<head>
+		<title>Candidate Registration | Builders Association</title>
+		<link href="static/css/index.css" rel="stylesheet">
+	</head>
+
+	<body>
+		
+
+		<form method="post" action="register.php">
+			<h2>Candidate Registration</h2>
+			<input type="text" name="name" placeholder="Full Name" required>
+			<input type="number" name="number" placeholder="Mobile Number" required>
+			<input type="email" name="email" placeholder="Email Address"><br>
+		
+			<select name='qualification' required>
+				<option value="">Select Qualification</option>
+				<option value="SCHOOL">School</option>
+				<option value="BACHELORS">Bachelors</option>
+				<option value="DIPLOMA">Diploma</option>
+			</select>
+
+			<select name='district' required>
+				<option value="">Select District/Locality</option>
+				<option value="ARIYALUR">Ariyalur</option>
+				<option value="CHENGALPATTU">Chengalpattu</option>
+				<option value="CHENNAI">Chennai</option>
+				<option value="COIMBATORE">Coimbatore</option>
+				<option value="CUDDALORE">Cuddalore</option>
+				<option value="DHARMAPURI">Dharmapuri</option>
+				<option value="DINDIGUL">Dindigul</option>
+				<option value="ERODE">Erode</option>
+				<option value="KALLAKURICHI">Kallakurichi</option>
+				<option value="KANCHIPURAM">Kanchipuram</option>
+				<option value="KANNIYAKUMARI">Kanniyakumari</option>
+				<option value="KARUR">Karur</option>
+				<option value="KRISHNAGIRI">Krishnagiri</option>
+				<option value="MADURAI">Madurai</option>
+				<option value="NAGAPPATINAM">Nagapattinam</option>
+				<option value="NAMAKKAL">Namakkal</option>
+				<option value="NILGIRIS">Nilgiris</option>
+				<option value="PERAMBALUR">Perambalur</option>
+				<option value="PUDUKOTTAI">Pudukottai</option>
+				<option value="RAMANATHAPURAM">Ramanathapuram</option>
+				<option value="RANIPET">Ranipet</option>
+				<option value="SALEM">Salem</option>
+				<option value="SIVAGANGA">Sivaganga</option>
+				<option value="TENKASI">Tenkasi</option>
+				<option value="THANJAVUR">Thanjavur</option>
+				<option value="THENI">Theni</option>
+				<option value="THOOTHUKUDI">Thoothukudi</option>
+				<option value="TIRUCHIRAPALLI">Tiruchirapalli</option>
+				<option value="TIRUNELVELI">Tirunelveli</option>
+				<option value="TIRUPATHUR">Tirupathur</option>
+				<option value="TIRUPPUR">Tiruppur</option>
+				<option value="TIRUVALLUR">Tiruvallur</option>
+				<option value="TIRUVANNAMALAI">Tiruvannamalai</option>
+				<option value="TIRUVARUR">Tiruvarur</option>
+				<option value="VELLORE">Vellore</option>
+				<option value="VILLUPURAM">Villupuram</option>
+				<option value="VIRUDHUNAGAR">Virudhunagar</option>
+			</select>
+
+			<select name='experience' required>
+				<option value=''>Select Experience</option>
+				<option value='FRESHER'>Fresher</option>
+				<option value='0-5 YEARS'>0-5 Years</option>
+				<option value='5+ YEARS'>5+ Years</option>
+			</select><br>
+
+			<button type="button" class="resume">Upload Resume</button>
+			<button type="submit">Register!</button>
+		</form>
+	</body>
+
+</html>
