@@ -67,11 +67,20 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 
 
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
-function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL, $referred=NULL, $placed=0, $paginationNum = 1) {
+function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL, $referred=NULL, $placed=0, $viewFullProfile=0, $paginationNum = 1) {
 
 	/* We must first construct an SQL statement using the options passed in. */
+	/* We construct the SQL statement by checking the options with if conditions. */
 
-	$sqlstmt = "SELECT ID, NAME, NUMBER, EMAIL, QUALIFICATION, RESUME FROM UNPLACED_CANDIDATES WHERE ";
+	$sqlstmt = "";
+
+	//We first check if the full profile is needed to be viewed or not.
+	if($viewFullProfile == 0) {
+		$sqlstmt = "SELECT ID, NAME, QUALIFICATION, EXPERIENCE, DISTRICT FROM UNPLACED_CANDIDATES WHERE ";
+	}
+	else {
+		$sqlstmt = "SELECT ID, NAME, NUMBER, EMAIL, QUALIFICATION, EXPERIENCE, DISTRICT, RESUME FROM UNPLACED_CANDIDATES WHERE ";
+	}
 
 	//We check for NAME.
 	if($name != NULL) {
@@ -120,23 +129,51 @@ function getCandidate($name=NULL, $number=NULL, $email=NULL, $qualification=NULL
 		$results = executeQuery($connection, $sqlstmt);
 		$connection = NULL; //Closes connection.
 
-		$id = array();
-		$name = array();
-		$number = array();
-		$email = array();
-		$qualification = array();
-		$resume = array();
+		//Depending on whether we want to get the full profile or not...
+		if($viewFullProfile == 0) { //If we do not want the full profile...
 
-		foreach ($results as $row) {
-			array_push($id,$row['ID']);
-			array_push($name,$row['NAME']);
-			array_push($number,$row['NUMBER']);
-			array_push($email,$row['EMAIL']);
-			array_push($qualification,$row['QUALIFICATION']);
-			array_push($resume,$row['RESUME']);
+			$id = array();
+			$name = array();
+			$qualification = array();
+			$experience = array();
+			$district = array();
+
+			foreach ($results as $row) {
+				array_push($id,$row['ID']);
+				array_push($name,$row['NAME']);
+				array_push($qualification,$row['QUALIFICATION']);
+				array_push($experience,$row['EXPERIENCE']);
+				array_push($district,$row['DISTRICT']);
+			}
+
+			return array($id,$name,$qualification,$experience,$district);
+
 		}
+		else { //If we want the full profile...
 
-		return array($id,$name,$number,$email,$qualification,$resume);
+			$id = array();
+			$name = array();
+			$number = array();
+			$email = array();
+			$qualification = array();
+			$experience = array();
+			$district = array();
+			$resume = array();
+
+			foreach ($results as $row) {
+				array_push($id,$row['ID']);
+				array_push($name,$row['NAME']);
+				array_push($number,$row['NUMBER']);
+				array_push($email,$row['EMAIL']);
+				array_push($qualification,$row['QUALIFICATION']);
+				array_push($experience,$row['EXPERIENCE']);
+				array_push($district,$row['DISTRICT']);
+				array_push($resume,$row['RESUME']);
+			}
+
+			return array($id,$name,$number,$email,$qualification,$experience,$district,$resume);
+
+		}
 
 	} catch (PDOException $exception) {
 		echo "Exception Thrown (candidate-listings.php/getCandidate): $exception";
