@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2019 at 09:25 AM
+-- Generation Time: Sep 05, 2019 at 10:06 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -66,7 +66,6 @@ CREATE TABLE `UNPLACED_CANDIDATES` (
   `EXPERIENCE` enum('FRESHER','0-5 YEARS','5+ YEARS') NOT NULL DEFAULT 'FRESHER',
   `DISTRICT` varchar(25) NOT NULL DEFAULT 'CHENNAI',
   `RESUME` varchar(50) NOT NULL,
-  `REJECTED_COMPANIES` varchar(400) NOT NULL,
   `REFERRED_COMPANY` varchar(10) DEFAULT NULL,
   `PLACED` int(5) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
