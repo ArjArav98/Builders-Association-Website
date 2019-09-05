@@ -37,7 +37,7 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 	try {
 
 		$connection = getConnection();
-		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, ?, REFERRED_COMPANY, 0);";
+		$sqlstmt = "INSERT INTO UNPLACED_CANDIDATES VALUES (ID, ?, ?, ?, ?, ?, ?, ?, REFERRED_COMPANY);";
 
 		$sql = $connection->prepare($sqlstmt);
 		$sql->bindParam(1, $name);
