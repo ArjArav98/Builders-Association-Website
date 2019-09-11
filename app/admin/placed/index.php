@@ -37,6 +37,10 @@ while($iterator < $length) {
 
 	<head>
 		<title>Admin - Placed Candidates | Builders Association</title>
+		<meta name="description" content="Web Application for Placements for the Builders Association!">
+		<meta name="keywords" content="web,application,placements,civil,builders,arjun,aravind,developer">
+		<meta name="author" content="Arjun Aravind">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="static/css/index1.css" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>

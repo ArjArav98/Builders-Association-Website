@@ -28,6 +28,10 @@ $result = getCandidate($candidateId, NULL, NULL, NULL, $referred, $placed, 1, 1)
 
 	<head>
 		<title><?php echo $result[1][0]; ?> | Builders Association</title>
+		<meta name="description" content="Web Application for Placements for the Builders Association!">
+		<meta name="keywords" content="web,application,placements,civil,builders,arjun,aravind,developer">
+		<meta name="author" content="Arjun Aravind">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<style>
 
 			body, html {

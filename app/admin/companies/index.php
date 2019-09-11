@@ -44,6 +44,11 @@ while($iter < $noOfCompanies) {
 
 	<head>
 		<title>Admin - Manage Companies | Builders Association</title>
+		<meta charset="UTF-8">
+		<meta name="description" content="Web Application for Placements for the Builders Association!">
+		<meta name="keywords" content="web,application,placements,civil,builders,arjun,aravind,developer">
+		<meta name="author" content="Arjun Aravind">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="static/css/index.css" rel="stylesheet">
 	</head>
 
