@@ -32,59 +32,7 @@ $result = getCandidate($candidateId, NULL, NULL, NULL, $referred, $placed, 1, 1)
 		<meta name="keywords" content="web,application,placements,civil,builders,arjun,aravind,developer">
 		<meta name="author" content="Arjun Aravind">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<style>
-
-			body, html {
-				margin: 0;
-				padding: 0;
-
-				font-family: "Verdana", sans-serif;
-			}
-
-			h2 {
-				margin: 4%;
-				text-align: center;
-				color: #2196f3;
-			}
-
-			p {
-				width: 40%;
-
-				margin: 0 auto;
-				padding: 1.25%;
-
-				text-align: center;
-				font-size: 110%;
-				color: #2196f3;
-			}
-
-			.alternative-p {
-				background-color: #2196f3;
-				color: white;
-			}
-
-			span {
-				font-weight: 600;
-			}
-
-			a {
-				display: block;
-				width: 20%;
-
-				margin: 2% auto;
-				padding: 1.25%;
-
-				border: 2px solid #2196f3;
-
-				text-decoration: none;
-				text-align: center;
-				color: white;
-				background-color: #2196f3;
-				font-size: 110%;
-				font-weight: 600;
-			}
-
-		</style>
+		<link href="static/css/index.css" rel="stylesheet">
 	</head>
 
 	<body>
