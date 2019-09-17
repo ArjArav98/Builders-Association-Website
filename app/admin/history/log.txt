@@ -1,0 +1,12 @@
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
