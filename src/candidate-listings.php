@@ -57,7 +57,6 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 
 }
 
-
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
 function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district=NULL, $referred=NULL, $placed=0, $viewFullProfile=0, $paginationNum = 1) {
 
@@ -111,9 +110,6 @@ function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district
 	}
 	if($referred != NULL && $placed == 0) {
 		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
-	}
-	if($referred == NULL && $placed == 1) {
-		$sqlstmt .= "";
 	}
 	if($referred != NULL && $placed == 1) {
 		$sqlstmt .= "AND COMPANY = $referred ";
@@ -285,6 +281,26 @@ function getCompanyId($username,$password) {
 
 	} catch (PDOException $exception) {
 		echo "Exception Thrown (candidate-listings.php/getCompanyId): $exception";
+		return -1;
+	}
+
+}
+
+/* This function returns the company name when the ID is given. */
+function getCompanyName($companyId) {
+
+	try {
+
+		$conn = getConnection(); //Creates connection.
+		$sqlstmt = "SELECT NAME FROM COMPANIES WHERE ID=$companyId;";
+
+		$results = executeQuery($conn, $sqlstmt);
+		$conn = NULL; //Closes connection.
+
+		return $results[0]['NAME']; //Returns auto_increment value of 1st row.
+
+	} catch (PDOException $exception) {
+		echo "Exception Thrown (candidate-listings.php/getCompanyName): $exception";
 		return -1;
 	}
 

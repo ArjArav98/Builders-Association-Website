@@ -82,13 +82,13 @@ nav a:hover {
 
 .logger p {
 	display: block;
-	width: 70%;
+	width: 46%;
 
-	margin: 0.5% auto;
-	padding: 2% 1%;
+	margin: 0.5% 0% 0.5% 29.5%;
+	padding: 2% 0%;
 	
 	white-space: pre-line;
-	text-align: center;
+	text-align: left;
 	line-height: 30px;
 
 	font-size: 105%;

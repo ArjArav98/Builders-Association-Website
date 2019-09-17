@@ -1,12 +1,7 @@
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
-<span>[2016-09-19]</span> This is the first line that should be seen in the logger file. 
+<span>[2019-09-18 04:15:04]</span> Arjun Aravind was placed in SVCE (ID: 2).
+<span>[2019-09-18 04:14:58]</span> Arjun Aravind was referred to SVCE (ID: 2).
+<span>[2019-09-18 04:14:52]</span> Arjun Aravind was rejected by SVCE (ID: 2).
+<span>[2019-09-18 04:14:36]</span> Arjun Aravind was referred to SVCE (ID: 2).
+<span>[2019-09-18 04:12:04]</span>  was referred to SVCE (ID: 2).
+<span>[2019-09-18 04:11:22]</span> Arjun Aravind was rejected by SVCE (ID: 2).
+<span>[2019-09-18 04:11:01]</span>  was referred to SVCE (ID: 2).
