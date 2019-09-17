@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 05, 2019 at 10:06 AM
+-- Generation Time: Sep 18, 2019 at 12:47 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -41,14 +41,14 @@ CREATE TABLE `COMPANIES` (
 
 CREATE TABLE `PLACED_CANDIDATES` (
   `ID` bigint(20) NOT NULL,
-  `NAME` varchar(60) NOT NULL,
-  `NUMBER` varchar(10) NOT NULL,
-  `EMAIL` varchar(40) NOT NULL,
-  `QUALIFICATION` enum('DIPLOMA','BACHELORS','SCHOOL') NOT NULL,
+  `NAME` varchar(60) DEFAULT NULL,
+  `NUMBER` varchar(10) DEFAULT NULL,
+  `EMAIL` varchar(40) DEFAULT NULL,
+  `QUALIFICATION` enum('DIPLOMA','BACHELORS','SCHOOL') NOT NULL DEFAULT 'DIPLOMA',
   `EXPERIENCE` enum('FRESHER','0-5 YEARS','5+ YEARS') NOT NULL DEFAULT 'FRESHER',
   `DISTRICT` varchar(25) NOT NULL DEFAULT 'CHENNAI',
-  `RESUME` varchar(50) NOT NULL,
-  `COMPANY` varchar(10) NOT NULL
+  `RESUME` varchar(50) DEFAULT NULL,
+  `COMPANY` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
