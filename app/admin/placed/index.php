@@ -54,6 +54,7 @@ while($iterator < $length) {
 			<a href="../home/index.php">Unplaced Candidates</a><a
 			href="">Placed Candidates</a><a
 			href="../companies/index.php">Manage Companies</a><a
+			href="">History</a><a
 			href="../login/logout.php">Logout</a>
 		</nav>
 
