@@ -112,6 +112,12 @@ function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district
 	if($referred != NULL && $placed == 0) {
 		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
 	}
+	if($referred == NULL && $placed == 1) {
+		$sqlstmt .= "";
+	}
+	if($referred != NULL && $placed == 1) {
+		$sqlstmt .= "AND COMPANY = $referred ";
+	}
 
 	/* We now construct for the Pagination Limit. */
 	$paginationNum *= 100;
