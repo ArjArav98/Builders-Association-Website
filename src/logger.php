@@ -12,21 +12,21 @@
 
 /* This function logs in when a candidate has been referred. */
 function referralLog($candidateName,$companyName,$companyId) {
-	$string="<span>[".getCurrentTimestamp()."]</span> $candidateName was referred to $companyName (ID: $companyId).\n";
+	$string="<span>[".getCurrentTimestamp()."]</span> $candidateName was referred to $companyName (Company-ID: $companyId).\n";
 	$fileData = file_get_contents("../../admin/history/log.txt");
 	file_put_contents("../../admin/history/log.txt",$string.$fileData);
 }
 
 /* This function logs in when a candidate has been placed. */
 function placementLog($candidateName,$companyName,$companyId) {
-	$string="<span>[".getCurrentTimestamp()."]</span> $candidateName was placed in $companyName (ID: $companyId).\n";
+	$string="<span>[".getCurrentTimestamp()."]</span> $candidateName was placed in $companyName (Company-ID: $companyId).\n";
 	$fileData = file_get_contents("../../admin/history/log.txt");
 	file_put_contents("../../admin/history/log.txt",$string.$fileData);
 }
 
 /* This function logs in when a candidate has been rejected. */
 function rejectionLog($candidateName,$companyName,$companyId) {
-	$string="<span>[".getCurrentTimestamp()."]</span> $candidateName was rejected by $companyName (ID: $companyId).\n";
+	$string="<span>[".getCurrentTimestamp()."]</span> $candidateName was rejected by $companyName (Company-ID: $companyId).\n";
 	$fileData = file_get_contents("../../admin/history/log.txt");
 	file_put_contents("../../admin/history/log.txt",$string.$fileData);
 }
