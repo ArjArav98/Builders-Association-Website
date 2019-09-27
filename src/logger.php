@@ -75,4 +75,13 @@ function getCurrentTimestamp() {
 	return date_format($date, 'Y-m-d H:i:s'); /* It is then formatted. */
 }
 
+/*************/
+/* SEARCHING */
+/*************/
+
+/* This function searches the LOG.TXT file for a specific term and resturns the results. */
+function searchHistoryFor($searchTerm) {
+	return system("cat log.txt | grep \"$searchTerm\"");
+}
+
 ?>
