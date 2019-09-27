@@ -64,15 +64,15 @@ while($iterator < $length) {
 			<h2><i class="material-icons">search</i> Filter Candidates</h2>
 			<select name="qualification">
 				<option value="">Qualification</option>
-				<option value="DIPLOMA">Diploma</option>
-				<option value="BACHELORS">Bachelors</option>
-				<option value="SCHOOL">School</option>
+				<option value="Diploma">Diploma</option>
+				<option value="Graduate">Graduate</option>
+				<option value="Post-Graduate">Post-Graduate</option>
 			</select>
 			<select name="experience">
 				<option value="">Experience</option>
-				<option value="FRESHER">Fresher</option>
-				<option value="0-5 YEARS">0-5 Years</option>
-				<option value="5+ YEARS">5+ Years</option>
+				<option value="Fresher">Fresher</option>
+				<option value="0-5 Years">0-5 Years</option>
+				<option value="5+ Years">5+ Years</option>
 			</select>
 			<select name="district">
 				<option value="">Select District/Locality</option>
