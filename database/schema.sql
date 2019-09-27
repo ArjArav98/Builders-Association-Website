@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 27, 2019 at 10:17 AM
+-- Generation Time: Sep 27, 2019 at 10:21 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `COMPANIES` (
   `ID` int(10) NOT NULL,
   `NAME` varchar(60) NOT NULL,
-  `USERNAME` varchar(50) NOT NULL,
-  `PASSWORD` varchar(100) NOT NULL
+  `USERNAME` varchar(300) NOT NULL,
+  `PASSWORD` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
