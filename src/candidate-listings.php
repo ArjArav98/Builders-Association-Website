@@ -118,7 +118,7 @@ function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district
 	/* We now construct for the Pagination Limit. */
 	$paginationNum *= 100;
 	$sqlstmt .= "LIMIT ".($paginationNum-100).",".($paginationNum).";";
-
+	
 	try {
 
 		$connection = getConnection(); //Creates connection.
