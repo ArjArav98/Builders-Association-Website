@@ -202,8 +202,9 @@ button {
 	background-color: #2196f3;
 }
 
-.black-bg {
-	background-color: black;
+.orange-bg {
+	background-color: orange;
+	font-weight: 600;
 	color: white;
 
 	border-right: 2px solid white;

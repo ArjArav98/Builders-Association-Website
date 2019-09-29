@@ -21,18 +21,36 @@ $html = "";
 while($iter < $noOfCompanies) {
 	$html .= "<div class='company'>
 			<p>
-				<span class='cell-value alternative-cl'>".$companies[0][$iter]."</span>
-				<span class='cell-value cell-value-bg-bg'>".$companies[1][$iter]."</span>
-				<span class='cell-value cell-value-bg alternative-cl'>".$companies[2][$iter]."</span>
-				<span class='cell-value cell-value-bg'>".$companies[3][$iter]."</span>
-			</p>
-			<form method='post' class='company-form' action='delete-company.php'>
+				<span class='cell-value alternative-cl'>".$companies[0][$iter]."</span><span 
+				class='cell-value cell-value-bg-bg'>".$companies[1][$iter]."</span><span 
+				class='cell-value cell-value-bg alternative-cl'>".$companies[2][$iter]."</span><span 
+				class='cell-value cell-value-bg'>".$companies[3][$iter]."</span>
+			</p><form 
+			method='post' class='company-form' action='delete-company.php'>
 				<input type='hidden' name='companyId' value='".$companies[0][$iter]."'>
-				<button type='submit'>Delete</button>
+				<button type='submit' class='red-bg'>Delete Company</button>
+			</form><form 
+			method='post' class='company-form' action='delete-company.php'>
+				<input type='hidden' name='companyId' value='".$companies[0][$iter]."'>
+				<button type='submit' class='black-bg'>Generate E-Mail</button>
 			</form>
 		</div>";
 	
 	$iter += 1;
+}
+
+if($noOfCompanies > 0) {
+	$htmlHeaders .= "<div class='company'>
+			<p>
+				<span class='cell-value orange-bg'>COMPANY ID</span><span 
+				class='cell-value cell-value-bg-bg orange-bg'>NAME</span><span
+				class='cell-value cell-value-bg orange-bg'>USERNAME</span><span
+				class='cell-value cell-value-bg orange-bg'>PASSWORD</span>
+			</p><span 
+			class='cell-value form-header orange-bg'>ACCOUNT ACTIONS</span>
+		</div>";
+	
+	$html = $htmlHeaders.$html;
 }
 
 /*******/

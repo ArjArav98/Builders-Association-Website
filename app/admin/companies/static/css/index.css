@@ -47,9 +47,9 @@ nav a:hover {
 	color: white;
 }
 
-/****************************/
+/************************************/
 /* CSS for the MANAGE-COMPANY-FORM. */
-/****************************/
+/************************************/
 
 form {
 	display: block;
@@ -125,28 +125,35 @@ button {
 	display: block;
 	width: 100%;
 
-	margin: 0.5% auto;
+	margin: 0% auto;
+	padding: 0;
 }
 
 .company p {
 	display: inline-block;
-	width: 85%;
+	width: 71%;
 
 	margin: 0;
+
+	text-align: right;
 }
 
 .company-form {
 	display: inline-block;
-	width: 14%;
+	width: 13.9%;
 
 	background-color: transparent;
+
+	text-align: left;
 }
 
 .company-form button {
 	display: inline-block;
-	margin: 0 0.5%;
-	padding: 2.6% 0%;
+	margin: 0% 0.5%;
+	padding: 4.5% 0%;
 	width: 98%;
+
+	border: none;
 }
 
 .cell-value {
@@ -154,6 +161,8 @@ button {
 	width: 12%;
 
 	padding: 1%;
+	margin: 0;
+	border: 2px solid white;
 
 	background-color: white;
 	text-align: center;
@@ -170,4 +179,25 @@ button {
 .alternative-cl {
 	color: white;
 	background-color: #2196f3;
+}
+
+.orange-bg {
+	color: white;
+	font-weight: 600;
+	background-color: orange;
+}
+
+.red-bg {
+	background-color: red;
+}
+
+.black-bg {
+	background-color: black;
+}
+
+.form-header {
+	display: inline-block;
+	width: 26%;
+
+	padding: 0.74%;
 }
