@@ -144,7 +144,7 @@ button {
 	margin: 0.25% auto;
 }
 
-.candidate a {
+.candidate a, .candidate p {
 	display: inline-block;
 	width: 99%;
 
@@ -183,6 +183,7 @@ button {
 	width: 12%;
 
 	padding: 1%;
+	border-right: 2px solid white;
 
 	background-color: white;
 	text-align: center;
@@ -199,4 +200,11 @@ button {
 .alternative-cl {
 	color: white;
 	background-color: #2196f3;
+}
+
+.black-bg {
+	background-color: black;
+	color: white;
+
+	border-right: 2px solid white;
 }
