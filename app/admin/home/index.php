@@ -28,6 +28,14 @@ while($iterator < $length) {
 	$iterator += 1;
 }
 
+if($length > 0) {
+	$HTMLHeaders = "<div class='candidate'>";
+	$HTMLHeaders .= "<p><span class='cell-value cell-value-bg alternative-cl black-bg'>NAME</span><span class='cell-value black-bg'>EXP.</span><span class='cell-value cell-value-bg-bg alternative-cl black-bg'>DISTRICT OF RESIDENCE</span><span class='cell-value black-bg'>QUAL.</span></p>";
+	$HTMLHeaders .= "<span class='cell-value form-header black-bg'>COMPANY REFERRAL</span></div>";
+
+	$HTML  = $HTMLHeaders.$HTML;
+}
+
 /*******/
 /* END */
 /*******/
