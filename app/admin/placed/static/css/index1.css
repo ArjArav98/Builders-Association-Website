@@ -117,6 +117,19 @@ button {
 /* CSS for the CANDIDATES-LIST. */
 /********************************/
 
+.unplaced-h2 {
+	display: block;
+	margin: 5% 0% 3% 0%;
+	width: 100%;
+	
+	color: #2196f3;
+	text-align: center;
+}
+
+.unplaced-h2 span {
+	font-size: 70%;
+}
+
 .candidate-list {
 	display: block;
 	width: 100%;

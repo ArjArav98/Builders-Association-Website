@@ -54,7 +54,7 @@ while($iterator < $length) {
 			href="../login/logout.php">Logout</a>
 		</nav>
 
-		<h2>Candidates Placed</h2>
+		<h2>Candidates Placed<br><span>Click on candidate names to view the full profile!</span></h2>
 
 		<!-- The list of candidates will be displayed here. -->
 		<div class="candidate-list">

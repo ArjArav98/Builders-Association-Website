@@ -60,7 +60,7 @@ while($iterator < $length) {
 
 		<!-- The options for filtering present as a form. -->
 		<form method="get" action="admin-filter.php" class="search-form">
-			<h2><i class="material-icons">search</i> Filter Candidates</h2>
+			<h2>Filter Candidates</h2>
 			<select name="qualification">
 				<option value="">Qualification</option>
 				<option value="DIPLOMA">Diploma</option>
@@ -115,6 +115,8 @@ while($iterator < $length) {
 			</select><br>
 			<button type="submit">Search!</button>
 		</form>
+
+		<h2 class="unplaced-h2">Unplaced Candidates<br><span>Click on candidate names to view the full profile!</span></h2>
 
 		<!-- The list of candidates will be displayed here. -->
 		<div class="candidate-list">
