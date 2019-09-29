@@ -24,9 +24,6 @@ function insertCompany($name,$username,$password){
 	if(usernameIsValid($username) == false) {
 		return;
 	}
-	else if(passwordIsValid($password) == false) {
-		return;
-	}
 
 	/* Once everything is set, we insert into SQL table. */
 

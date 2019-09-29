@@ -80,16 +80,4 @@ function usernameIsValid($username) {
 
 }
 
-/* This function checks if a password is valid or not. */
-function passwordIsValid($password) {
-	
-	if(preg_match('/^[a-zA-Z0-9_-]+$/',$password) == 1) {
-		return true;
-	}
-	else {
-		return false;
-	}
-
-}
-
 ?>
