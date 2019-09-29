@@ -26,7 +26,7 @@ if(login($username,$password,false) == true) {
 	$_SESSION["SEARCH_QUALIFICATION"] = NULL;
 	$_SESSION["SEARCH_EXPERIENCE"] = NULL;
 	$_SESSION["SEARCH_DISTRICT"] = NULL;
-	$_SESSION['HISTORY_SEARCH'] = "";
+	$_SESSION["HISTORY_SEARCH"] = NULL;
 
 	/* We redirect to the 'ADMIN HOME' page. */
 	header('Location: ../home/index.php', true, 303);

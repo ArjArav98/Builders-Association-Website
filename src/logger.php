@@ -81,7 +81,8 @@ function getCurrentTimestamp() {
 
 /* This function searches the LOG.TXT file for a specific term and resturns the results. */
 function searchHistoryFor($searchTerm) {
-	return system("cat log.txt | grep \"$searchTerm\"");
+	system("grep \"$searchTerm\" ../../admin/history/log.txt > ../../admin/history/searched-log.txt");
+	return file_get_contents("../../admin/history/searched-log.txt");
 }
 
 ?>

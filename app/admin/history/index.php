@@ -5,11 +5,18 @@
 /***************************/
 
 /* This file loads the contents of the history page. */
-
+session_start();
 require '../../../src/logger.php';
 
 $pageNum = $_REQUEST['page'];
-$string = getLoggerContents($pageNum);
+
+if ($_SESSION["HISTORY_SEARCH"] == NULL) {
+	$string = getLoggerContents($pageNum);
+}
+else {
+	$string = searchHistoryFor($_SESSION["HISTORY_SEARCH"]);
+	$_SESSION["HISTORY_SEARCH"] = NULL;
+}
 
 $prevPageNum = ($pageNum == 0)? 0 : $pageNum - 1;
 $nextPageNum = $pageNum + 1;
@@ -24,12 +31,12 @@ $nextPageNum = $pageNum + 1;
 		<meta name="author" content="Arjun Aravind">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="static/css/index.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
 	<body>
 
 		<!-- This page contains options for viewing a log of the application. -->
-
 		<nav>
 			<a href="../home/index.php">Unplaced Candidates</a><a
 			href="../placed/index.php">Placed Candidates</a><a
@@ -38,6 +45,14 @@ $nextPageNum = $pageNum + 1;
 			href="../login/logout.php">Logout</a>
 		</nav>
 
+		<!-- The options for searching present as a form. -->
+		<form method="get" action="search-history.php" class="search-form">
+			<h2><i class="material-icons">search</i> Search History</h2>
+			<input type="text" name="searchTerm" placeholder="Enter Search Term">	
+			<button type="submit">Search!</button>
+		</form>
+
+		<!-- The LOG.TXT is displayed here. -->
 		<div class="logger">
 			<a href="./index.php?page=<?php echo $prevPageNum; ?>" class="">Previous</a>
 			<a href="./index.php?page=<?php echo $nextPageNum; ?>" class="">Next</a>
