@@ -102,10 +102,11 @@ button:hover {
 	display: block;
 	width: 100%;
 
-	margin: 0.5% auto;
+	margin: 0.2% auto;
+	text-align: center;
 }
 
-.candidate a {
+.candidate a, .candidate p {
 	display: inline-block;
 	width: 100%;
 
@@ -114,9 +115,10 @@ button:hover {
 
 .cell-value {
 	display: inline-block;
-	width: 19%;
+	width: 18.5%;
 
 	padding: 1%;
+	border-right: 2px solid white;
 
 	background-color: white;
 	text-align: center;
@@ -133,4 +135,10 @@ button:hover {
 .alternative-cl {
 	color: white;
 	background-color: #2196f3;
+}
+
+.orange-bg {
+	color: white;
+	background-color: orange;
+	font-weight: 600;
 }

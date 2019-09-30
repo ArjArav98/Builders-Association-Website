@@ -20,11 +20,31 @@ $HTML = "";
 /* We iterate over the array and generate a HTML string. */
 while($iterator < $length) {
 
-	$HTML .= "<div class='candidate'>";
-	$HTML .= "<a href='../../candidate/details/index.php?q=".$results[0][$iterator]."&placed=1&referred=0'><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span><span class='cell-value alternative-cl'>".$results[3][$iterator]."</span><span class='cell-value cell-value-bg'>".$results[4][$iterator]."</span></a>";
-	$HTML .= "</div>";
+	$HTML .= "<div class='candidate'>
+			<a href='../../candidate/details/index.php?q=".$results[0][$iterator]."&placed=1&referred=0'>
+				<span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span
+				class='cell-value'>".$results[2][$iterator]."</span><span 
+				class='cell-value alternative-cl'>".$results[3][$iterator]."</span><span 
+				class='cell-value cell-value-bg'>".$results[4][$iterator]."</span>
+			</a>
+		</div>";
 
 	$iterator += 1;
+}
+
+/* This block concatenates the headers of the columns to the HTML string generated. */
+if($length > 0) {
+
+	$htmlHeaders = "<div class='candidate'>
+				<p>
+					<span class='cell-value cell-value-bg orange-bg'>NAME</span><span
+					class='cell-value orange-bg'>QUAL.</span><span 
+					class='cell-value orange-bg'>EXP.</span><span 
+					class='cell-value cell-value-bg orange-bg'>DISTRICT</span>
+				</p>
+			</div>";
+
+	$HTML  = $htmlHeaders.$HTML;
 }
 
 /*******/
