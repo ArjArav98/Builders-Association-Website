@@ -40,10 +40,9 @@ while($iter < $noOfCompanies) {
 }
 
 if($noOfCompanies > 0) {
-	$htmlHeaders .= "<div class='company'>
-			<p>
+	$htmlHeaders = "<div class='company'><p>
 				<span class='cell-value orange-bg'>COMPANY ID</span><span 
-				class='cell-value cell-value-bg-bg orange-bg'>NAME</span><span
+				class='cell-value cell-value-bg-bg orange-bg'>COMPANY NAME</span><span
 				class='cell-value cell-value-bg orange-bg'>USERNAME</span><span
 				class='cell-value cell-value-bg orange-bg'>PASSWORD</span>
 			</p><span 
