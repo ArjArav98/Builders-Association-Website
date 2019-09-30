@@ -32,11 +32,10 @@ while($iter < $noOfCompanies) {
 			method='post' class='company-form' action='delete-company.php'>
 				<input type='hidden' name='companyId' value='".$companies[0][$iter]."'>
 				<button type='submit' class='red-bg'>Delete Company</button>
-			</form><form 
-			method='post' class='company-form' action='delete-company.php'>
+			</form><a href='response.php?company=".$companies[0][$iter]."' class='company-form' target='_blank'>
 				<input type='hidden' name='companyId' value='".$companies[0][$iter]."'>
 				<button type='submit' class='black-bg'>Generate E-Mail</button>
-			</form>
+			</a>
 		</div>";
 	
 	$iter += 1;
