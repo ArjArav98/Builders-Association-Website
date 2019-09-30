@@ -1,3 +1,4 @@
+# THIS IS STILL A WORK IN PROGRESS.
 # The following are a list of things we need to do for seting up the project.
 
 sudo echo ""
@@ -26,14 +27,15 @@ then
 	read -p "Enter your MySQL Password -> " sql_password
 	sudo echo "BUILDERS_USERNAME=\"$sql_password\"" >> /etc/environment
 
-	read -p "Enter the E-Mail Address you'd like to use -> " email
-	sudo echo "BUILDERS_GMAIL_ADDRESS=\"$email\"" >> /etc/environment
+	read -p "Enter the E-Mail Address you'd like to use -> " email_address
+	sudo echo "BUILDERS_GMAIL_ADDRESS=\"$email_address\"" >> /etc/environment
 
-	read -p -s "Enter the password for $email -> " email_password
+	read -p "Enter the password for $email_address -> " email_password
 	sudo echo "BUILDERS_GMAIL_PASSWORD=\"$email_password\"" >> /etc/environment
 
-	python_path=type -p python3
-	sudo echo "PYTHON_PATH=\"python_path\"" >> /etc/environment
+	python_path="hello"
+	type -p python3 > python_path
+	sudo echo "PYTHON_PATH=\"$python_path\"" >> /etc/environment
 	
 	sudo echo "export BUILDERS_USERNAME" >> /etc/environment
 	sudo echo "export BUILDERS_PASSWORD" >> /etc/environment
@@ -41,7 +43,8 @@ then
 	sudo echo "export BUILDERS_GMAIL_PASSWORD" >> /etc/environment
 	sudo echo "export PYTHON_PATH" >> /etc/environment
 
-	source /etc/environment
+	cd /etc/
+	source environment
 
 	echo "Added environment variables..."
 fi
@@ -59,11 +62,11 @@ then
 	read -p "Enter the E-Mail Address you'd like to use -> " email
 	sudo echo "BUILDERS_GMAIL_ADDRESS=\"$email\"" >> ../../../bin/envvars
 
-	read -p -s "Enter the password for $email -> " email_password
+	read -p "Enter the password for $email -> " email_password
 	sudo echo "BUILDERS_GMAIL_PASSWORD=\"$email_password\"" >> ../../../bin/envvars
 
 	python_path=type -p python3
-	sudo echo "PYTHON_PATH=\"python_path\"" >> ../../../bin/envvars
+	sudo echo "PYTHON_PATH="\"$python_path\"" >> ../../../bin/envvars
 	
 	sudo echo "export BUILDERS_USERNAME" >> ../../../bin/envvars
 	sudo echo "export BUILDERS_PASSWORD" >> ../../../bin/envvars
