@@ -12,6 +12,7 @@ require '../../../src/sql-connections.php';
 require '../../../src/sql-functions.php';
 require '../../../src/data-validation.php';
 require '../../../src/candidate-listings.php';
+require '../../../src/company-listings.php';
 require '../../../src/logger.php';
 
 /* We get the required data from the 'refer company' form. */
@@ -23,7 +24,7 @@ referCandidate($candidateId, $companyId);
 
 /* We log the referral of the candidate. */
 $candidateName = getCandidate($candidateId,NULL,NULL,NULL,$companyId,0,0,1)[1][0]; 
-referralLog($candidateName,getCompanyName($companyId),$companyId);
+referralLog($candidateName,getCompanies($companyId,NULL,NULL)[1][0],$companyId);
 
 /* We redirect back to the ADMIN-HOME page. */
 header('Location: index.php', true, 303);

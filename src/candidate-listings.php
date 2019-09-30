@@ -261,44 +261,4 @@ function getCurrentAutoIncValue(){
 
 }
 
-/* This function returns the company ID of the given username and password. */
-function getCompanyId($username,$password) {
-
-	try {
-
-		$conn = getConnection(); //Creates connection.
-		$sqlstmt = "SELECT ID FROM COMPANIES WHERE USERNAME='$username' AND PASSWORD='$password';";
-
-		$results = executeQuery($conn, $sqlstmt);
-		$conn = NULL; //Closes connection.
-
-		return $results[0]['ID']; //Returns auto_increment value of 1st row.
-
-	} catch (PDOException $exception) {
-		echo "Exception Thrown (candidate-listings.php/getCompanyId): $exception";
-		return -1;
-	}
-
-}
-
-/* This function returns the company name when the ID is given. */
-function getCompanyName($companyId) {
-
-	try {
-
-		$conn = getConnection(); //Creates connection.
-		$sqlstmt = "SELECT NAME FROM COMPANIES WHERE ID=$companyId;";
-
-		$results = executeQuery($conn, $sqlstmt);
-		$conn = NULL; //Closes connection.
-
-		return $results[0]['NAME']; //Returns auto_increment value of 1st row.
-
-	} catch (PDOException $exception) {
-		echo "Exception Thrown (candidate-listings.php/getCompanyName): $exception";
-		return -1;
-	}
-
-}
-
 ?>
