@@ -1,5 +1,8 @@
 <?php
 
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/data-validation.php';
 require '../../../src/candidate-listings.php';
 
 $name = $_POST['name'];

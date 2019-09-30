@@ -7,6 +7,9 @@
 /* This file gives the full details of the specified candidate. */
 
 /* We include the necessary libraries. */
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/data-validation.php';
 require '../../../src/candidate-listings.php';
 
 /* We get the ID of the candidate through the URL. */

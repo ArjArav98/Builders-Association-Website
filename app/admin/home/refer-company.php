@@ -8,6 +8,9 @@
 
 /* We start the session and include the necessary libraries. */
 session_start();
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/data-validation.php';
 require '../../../src/candidate-listings.php';
 require '../../../src/logger.php';
 

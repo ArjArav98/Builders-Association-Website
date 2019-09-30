@@ -1,7 +1,5 @@
 <?php
 
-require '../../../src/candidate-listings.php';
-
 /************/
 /* MAIL.PHP */
 /************/
@@ -11,6 +9,10 @@ require '../../../src/candidate-listings.php';
 function sendInfoEmailToCandidate($candidateId) {
 	$candidateEmailAddress = getCandidate($candidateId, NULL, NULL, NULL, NULL, 0, 1, 1)[3][0];
 	system("python3 ../../../mail/mail.py $candidateEmailAddress");
+}
+
+function generateEmailResponse($companyId) {
+
 }
 
 ?>

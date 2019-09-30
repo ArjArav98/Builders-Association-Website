@@ -6,11 +6,6 @@
 
 /* This file contains libraries for retrieving, manipulating or deleting records from the candidate listings. */
 
-/* We import the necessary php libraries. */
-require '../../../src/sql-connections.php';
-require '../../../src/sql-functions.php';
-require '../../../src/data-validation.php';
-
 /*-----------*/
 /* Insertion */
 /*-----------*/

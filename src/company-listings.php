@@ -6,11 +6,6 @@
 
 /* This file contains functions necessary for manipulating, inserting and deleting records in the company listings. */
 
-/* We import the necessary php libraries. */
-require '../../../src/sql-connections.php';
-require '../../../src/sql-functions.php';
-require '../../../src/data-validation.php';
-
 /*-----------*/
 /* INSERTION */
 /*-----------*/
@@ -51,13 +46,19 @@ function insertCompany($name,$username,$password){
 /*-----------*/
 
 /* This function retrieves the information about companies from the COMPANIES table. */
-function getCompanies() {
+function getCompanies($id=NULL,$username=NULL,$password=NULL) {
+
+	$sqlstmt = "SELECT* FROM COMPANIES ";
+
+	$sqlstmt .= ($username == NULL)? "WHERE USERNAME LIKE '%' " : "WHERE USERNAME = '$username' ";
+	$sqlstmt .= ($password == NULL)? "" : "AND PASSWORD = '$password' ";
+	$sqlstmt .= ($id == NULL)? "" : "AND ID = $id ";
+
+	$sqlstmt .= "ORDER BY NAME ASC;";
 
 	try {
 
 		$connection = getConnection(); //Creates connection.
-		$sqlstmt = "SELECT* FROM COMPANIES ORDER BY NAME ASC;"; //We get it alphabetcially sorted.
-
 		$results = executeQuery($connection, $sqlstmt);
 		$connection = NULL; //Closes connection.
 

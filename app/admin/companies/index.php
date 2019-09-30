@@ -8,10 +8,13 @@
 
 /* We start the session and include the necessary libraries. */
 session_start();
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/data-validation.php';
 require '../../../src/company-listings.php';
 
 /* We get the list of companies which have been created by the admin which are currently in the database. */
-$companies = getCompanies();
+$companies = getCompanies(NULL,NULL,NULL);
 
 /* We generate the HTML string for the list of companies. */
 $iter = 0;

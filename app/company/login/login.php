@@ -12,7 +12,11 @@ session_unset();
 
 /* We include the necessary libraries. */
 require '../../../src/login.php';
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/data-validation.php';
 require '../../../src/candidate-listings.php';
+require '../../../src/company-listings.php';
 
 /* We get the login details from the login form. */
 $username = $_REQUEST["username"];
@@ -20,7 +24,7 @@ $password = $_REQUEST["password"];
 
 /* We authenticate the login details for the company. */
 if(login($username,$password,true) == true) {
-	$_SESSION["COMPANY_ID"] = getCompanyId($username,$password);
+	$_SESSION["COMPANY_ID"] = getCompanies(NULL,$username,$password)[0][0];
 
 	/* If authenticated, we redirect to the 'COMPANY HOME' page. */
 	header('Location: ../home/index.php', true, 303);

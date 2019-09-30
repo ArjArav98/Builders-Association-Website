@@ -8,6 +8,9 @@
 
 /* We start the session and include the necessary libraries. */
 session_start();
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/data-validation.php';
 require '../../../src/company-listings.php';
 
 /* We now get the necessary information through POST. */

@@ -8,6 +8,9 @@
 
 /* We start the session and include necessary libraries. */
 session_start();
+require '../../../src/sql-connections.php';
+require '../../../src/sql-functions.php';
+require '../../../src/data-validation.php';
 require '../../../src/candidate-listings.php';
 
 /* We get the required list of candidates from the database using the search options. */
