@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 msg = MIMEMultipart()
-msg['From'] = "arjun.aravind1998@gmail.com"
+msg['From'] = os.environ['BUILDERS_GMAIL_ADDRESS']
 msg['To'] = sys.argv[1]
 msg['Subject'] = 'Builders Association of India - Welcome!'
 
@@ -19,7 +19,7 @@ msg.attach(MIMEText(body,'plain'))
 text = msg.as_string()
 server = smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
-server.login("arjun.aravind1998@gmail.com",os.environ['BUILDERS_GMAIL_PASSWORD'])
+server.login(os.environ['BUILDERS_GMAIL_ADDRESS'],os.environ['BUILDERS_GMAIL_PASSWORD'])
 
 server.sendmail(msg['From'],msg['To'],text)
 server.quit()
