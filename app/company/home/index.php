@@ -40,6 +40,7 @@ while($iterator < $length) {
 	$iterator += 1;
 }
 
+/* We concatenate the headers of the columns to the generated HTML string. */
 if($length > 0) {
 	
 	$htmlHeaders = "<div class='candidate'><p>

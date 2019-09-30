@@ -39,6 +39,7 @@ while($iter < $noOfCompanies) {
 	$iter += 1;
 }
 
+/* We concatenate the headers of the columns to the generated HTML string. */
 if($noOfCompanies > 0) {
 	$htmlHeaders = "<div class='company'><p>
 				<span class='cell-value orange-bg'>COMPANY ID</span><span 
