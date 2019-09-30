@@ -19,8 +19,7 @@ placeCandidate($candidateId);
 
 /* We then proceed to log the placement. */
 $candidateName = getCandidate($candidateId,NULL,NULL,NULL,NULL,1,0,1)[1][0];
-echo $candidateName;
-placementLog($candidateName,getCompanies($_SESSION['COMPANY_ID'],NULL,NULL)[1][0],$_SESSION['COMPANY_ID']);
+placementLog($candidateName,$candidateId,getCompanies($_SESSION['COMPANY_ID'],NULL,NULL)[1][0],$_SESSION['COMPANY_ID']);
 
 /* We then redirect to the INDEX.PHP file. */
 header('Location: index.php', true, 303);

@@ -24,7 +24,7 @@ referCandidate($candidateId, $companyId);
 
 /* We log the referral of the candidate. */
 $candidateName = getCandidate($candidateId,NULL,NULL,NULL,$companyId,0,0,1)[1][0]; 
-referralLog($candidateName,getCompanies($companyId,NULL,NULL)[1][0],$companyId);
+referralLog($candidateName,$candidateId,getCompanies($companyId,NULL,NULL)[1][0],$companyId);
 
 /* We redirect back to the ADMIN-HOME page. */
 header('Location: index.php', true, 303);

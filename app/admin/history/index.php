@@ -47,7 +47,7 @@ $nextPageNum = $pageNum + 1;
 
 		<!-- The options for searching present as a form. -->
 		<form method="get" action="search-history.php" class="search-form">
-			<h2><i class="material-icons">search</i> Search History</h2>
+			<h2>Search History</h2>
 			<input type="text" name="searchTerm" placeholder="Enter Search Term">	
 			<button type="submit">Search!</button>
 		</form>

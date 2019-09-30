@@ -19,8 +19,9 @@ rejectCandidate($candidateId);
 
 /* We then proceed to log the placement. */
 $candidateName = getCandidate($candidateId,NULL,NULL,NULL,NULL,0,0,1)[1][0];
-rejectionLog($candidateName,getCompanies($_SESSION['COMPANY_ID'],NULL,NULL)[1][0],$_SESSION['COMPANY_ID']);
+rejectionLog($candidateName,$candidateId,getCompanies($_SESSION['COMPANY_ID'],NULL,NULL)[1][0],$_SESSION['COMPANY_ID']);
 
+/* We then redirect to the INDEX.PHP page. */
 header('Location: index.php', true, 303);
 die();
 

@@ -1,8 +1,2 @@
-<span>[2019-09-30 10:13:54]</span> Aravind Sankaran was rejected by SVCE (Company-ID: 1).
-<span>[2019-09-30 10:13:37]</span> Aravind Sankaran was referred to SVCE (Company-ID: 1).
-<span>[2019-09-30 08:19:50]</span> MS Dhoni was rejected by SVCE (Company-ID: 1).
-<span>[2019-09-30 08:19:48]</span> Virat Kohli was placed in SVCE (Company-ID: 1).
-<span>[2019-09-30 08:15:27]</span> Virat Kohli was referred to SVCE (Company-ID: 1).
-<span>[2019-09-30 07:39:47]</span> MS Dhoni was referred to SVCE (Company-ID: 1).
-<span>[2019-09-29 21:37:44]</span> Arjun Aravind was placed in SVCE (Company-ID: 1).
-<span>[2019-09-29 18:59:34]</span> Arjun Aravind was referred to SVCE (Company-ID: 1).
+<span>[2019-09-30 13:13:49]</span> MS Dhoni (Candidate-ID: 2) was referred to Sri Venkateswara College (Company-ID: 1).
+<span>[2019-09-30 13:11:13]</span> Arjun Aravind (Candidate-ID: 1) was referred to Sri Venkateswara College (Company-ID: 1).
