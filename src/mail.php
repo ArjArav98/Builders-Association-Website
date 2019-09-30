@@ -7,7 +7,7 @@
 /* This function sends an e-mail to the candidate with the given information. */
 /* We simply execute a python file with the email as a command-line argument. */
 function sendInfoEmailToCandidate($candidateEmailAddress) {
-	system("python3 ../../../mail/mail.py $candidateEmailAddress");
+	system(getenv("PYTHON_PATH")." ../../../mail/mail.py $candidateEmailAddress");
 }
 
 function generateEmailResponse($companyId) {

@@ -16,7 +16,7 @@ $district = $_POST['district'];
 insertCandidate($name, $number, $email, $qualification, $experience, $district);
 sendInfoEmailToCandidate($email);
 
-/*header('Location: index.html', true, 303);
-die();*/
+header('Location: index.html', true, 303);
+die();
 
 ?>
