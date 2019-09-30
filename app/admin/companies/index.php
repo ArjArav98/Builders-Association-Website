@@ -12,6 +12,12 @@ require '../../../src/sql-connections.php';
 require '../../../src/sql-functions.php';
 require '../../../src/data-validation.php';
 require '../../../src/company-listings.php';
+require '../../../src/login.php';
+
+/* We check if the user is logged in or not. If not, we redirect the user to the login page. */
+if(isNotLoggedIn()) {
+	redirectToLogin();
+}
 
 /* We get the list of companies which have been created by the admin which are currently in the database. */
 $companies = getCompanies(NULL,NULL,NULL);

@@ -23,6 +23,7 @@ $password = $_REQUEST['password'];
 if(login($username,$password,false) == true) {
 
 	/* We set the SESSION variables for filtering options to false. */
+	$_SESSION["LOGGED_IN"] = 1;
 	$_SESSION["SEARCH_QUALIFICATION"] = NULL;
 	$_SESSION["SEARCH_EXPERIENCE"] = NULL;
 	$_SESSION["SEARCH_DISTRICT"] = NULL;

@@ -11,6 +11,12 @@ require '../../../src/sql-connections.php';
 require '../../../src/sql-functions.php';
 require '../../../src/data-validation.php';
 require '../../../src/candidate-listings.php';
+require '../../../src/login.php';
+
+/* We check if the user is logged in. If not, we redirect the user to the company login page. */
+if(isNotLoggedIn()) {
+	redirectToLoginFromCandidate();
+}
 
 /* We get the ID of the candidate through the URL. */
 $candidateId = $_REQUEST['q'];

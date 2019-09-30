@@ -42,4 +42,25 @@ function login($username, $password, $isCompany) {
 
 }
 
+
+/* This function checks whether a user is logged in or not. Makes use of SESSION variables. */
+function isNotLoggedIn() {
+	if(!isset($_SESSION["LOGGED_IN"])) {
+		return true;
+	}
+	
+	return false;
+}
+
+/* This function redirects to the login page. */
+function redirectToLogin() {
+	header("Location: ../login/index.html", true, 303);
+	die();
+}
+
+/* This function redirects to the login page from the candidate details page. */
+function redirectToLoginFromCandidate() {
+	header("Location: ../../company/login/index.html", true, 303);
+	die();
+}
 ?>

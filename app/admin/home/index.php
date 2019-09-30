@@ -12,6 +12,12 @@ require '../../../src/sql-connections.php';
 require '../../../src/sql-functions.php';
 require '../../../src/data-validation.php';
 require '../../../src/candidate-listings.php';
+require '../../../src/login.php';
+
+/* We check if the user is logged in, otherwise we redirect to the home page. */
+if(isNotLoggedIn()) {
+	redirectToLogin();
+}
 
 /* We get the required list of candidates from the database using the search options. */
 /* These search options are present as SESSION variables. */

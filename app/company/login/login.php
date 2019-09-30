@@ -24,6 +24,8 @@ $password = $_REQUEST["password"];
 
 /* We authenticate the login details for the company. */
 if(login($username,$password,true) == true) {
+
+	$_SESSION["LOGGED_IN"] = 1;
 	$_SESSION["COMPANY_ID"] = getCompanies(NULL,$username,$password)[0][0];
 
 	/* If authenticated, we redirect to the 'COMPANY HOME' page. */

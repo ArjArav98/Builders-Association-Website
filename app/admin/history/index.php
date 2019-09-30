@@ -5,11 +5,21 @@
 /***************************/
 
 /* This file loads the contents of the history page. */
+
+/* We get the necessary libraries and start the session. */
 session_start();
 require '../../../src/logger.php';
+require '../../../src/login.php';
 
+/* We check if the user is logged in or not. If not, we redirect the user to the login page. */
+if(isNotLoggedIn()) {
+	redirectToLogin();
+}
+
+/* We get the necessary data from the page. */
 $pageNum = $_REQUEST['page'];
 
+/* We load the contents of the page. */
 if ($_SESSION["HISTORY_SEARCH"] == NULL) {
 	$string = getLoggerContents($pageNum);
 }
@@ -18,6 +28,7 @@ else {
 	$_SESSION["HISTORY_SEARCH"] = NULL;
 }
 
+/* We initialise the links for the next and previous pages. */
 $prevPageNum = ($pageNum == 0)? 0 : $pageNum - 1;
 $nextPageNum = $pageNum + 1;
 
