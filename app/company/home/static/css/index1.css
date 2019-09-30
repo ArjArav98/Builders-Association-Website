@@ -126,14 +126,15 @@ button:hover {
 	display: block;
 	width: 100%;
 
-	margin: 0.5% auto;
+	margin: 0.2% auto;
 }
 
-.candidate a {
+.candidate a, .candidate p {
 	display: inline-block;
 	width: 70%;
 
 	margin: 0;
+	text-align: right;
 }
 
 .candidate-form {
@@ -141,12 +142,14 @@ button:hover {
 	width: 14.5%;
 
 	background-color: transparent;
+	text-align: left;
 }
 
 .candidate-form button {
 	display: inline-block;
-	padding: 2.7% 0%;
+	padding: 3% 0%;
 	width: 95%;
+	border: none;
 }
 
 .place button {
@@ -163,9 +166,10 @@ button:hover {
 
 .cell-value {
 	display: inline-block;
-	width: 19%;
+	width: 18.5%;
 
 	padding: 1%;
+	border-right: 2px solid white;
 
 	background-color: white;
 	text-align: center;
@@ -182,4 +186,17 @@ button:hover {
 .alternative-cl {
 	color: white;
 	background-color: #2196f3;
+}
+
+.orange-bg {
+	color: white;
+	background-color: orange;
+	font-weight: 600;
+}
+
+.form-header {
+	display: inline-block;
+	width: 26.9%;
+
+	padding: 0.73%;
 }

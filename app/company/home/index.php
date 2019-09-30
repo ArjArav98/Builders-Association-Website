@@ -20,12 +20,38 @@ $HTML = "";
 /* We iterate over the array and generate a HTML string. */
 while($iterator < $length) {
 
-	$HTML .= "<div class='candidate'>";
-	$HTML .= "<a href='../../candidate/details/index.php?q=".$results[0][$iterator]."&placed=0&referred=".$_SESSION['COMPANY_ID']."'><span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span class='cell-value'>".$results[2][$iterator]."</span><span class='cell-value alternative-cl'>".$results[3][$iterator]."</span><span class='cell-value cell-value-bg'>".$results[4][$iterator]."</span></a>";
-	$HTML .= "<form method='post' action='place-candidate.php' class='candidate-form place'><input type='hidden' name='candidateId' value='".$results[0][$iterator]."'><button type='submit'>Place</button></form><form method='post' action='reject-candidate.php' class='candidate-form reject'><input type='hidden' name='candidateId' value='".$results[0][$iterator]."'><button type='submit'>Reject</button></form>";
-	$HTML .= "</div>";
+	$HTML .= "<div class='candidate'>
+			<a href='../../candidate/details/index.php?q=".$results[0][$iterator]."&placed=0&referred=".$_SESSION['COMPANY_ID']."'>
+				<span class='cell-value cell-value-bg alternative-cl'>".$results[1][$iterator]."</span><span 
+				class='cell-value'>".$results[2][$iterator]."</span><span 
+				class='cell-value alternative-cl'>".$results[3][$iterator]."</span><span 
+				class='cell-value cell-value-bg'>".$results[4][$iterator]."</span>
+			</a><form 
+			method='post' action='place-candidate.php' class='candidate-form place'>
+				<input type='hidden' name='candidateId' value='".$results[0][$iterator]."'><button 
+				type='submit'>Place</button>
+			</form><form 
+			method='post' action='reject-candidate.php' class='candidate-form reject'>
+				<input type='hidden' name='candidateId' value='".$results[0][$iterator]."'><button 
+				type='submit'>Reject</button>
+			</form>
+		</div>";
 
 	$iterator += 1;
+}
+
+if($length > 0) {
+	
+	$htmlHeaders = "<div class='candidate'><p>
+				<span class='cell-value cell-value-bg orange-bg'>NAME</span><span 
+				class='cell-value orange-bg'>QUAL.</span><span 
+				class='cell-value orange-bg'>EXP.</span><span 
+				class='cell-value cell-value-bg orange-bg'>RESIDENCE</span>
+			</p><span 
+			class='cell-value form-header orange-bg'>PLACE/REJECT</span>
+		</div>";
+
+	$HTML = $htmlHeaders.$HTML;
 }
 
 /*******/
