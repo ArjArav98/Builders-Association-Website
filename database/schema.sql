@@ -3,12 +3,12 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 30, 2019 at 08:29 AM
+-- Generation Time: Oct 01, 2019 at 02:30 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "+05:30";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -31,6 +31,18 @@ CREATE TABLE `COMPANIES` (
   `NAME` varchar(60) NOT NULL,
   `USERNAME` varchar(300) NOT NULL,
   `PASSWORD` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `FEEDBACK`
+--
+
+CREATE TABLE `FEEDBACK` (
+  `ID` int(10) NOT NULL,
+  `CANDIDATEID` int(10) NOT NULL,
+  `MESSAGE` varchar(10000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -81,6 +93,12 @@ ALTER TABLE `COMPANIES`
   ADD UNIQUE KEY `USERNAME` (`USERNAME`);
 
 --
+-- Indexes for table `FEEDBACK`
+--
+ALTER TABLE `FEEDBACK`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `PLACED_CANDIDATES`
 --
 ALTER TABLE `PLACED_CANDIDATES`
@@ -102,6 +120,11 @@ ALTER TABLE `UNPLACED_CANDIDATES`
 --
 ALTER TABLE `COMPANIES`
   MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+--
+-- AUTO_INCREMENT for table `FEEDBACK`
+--
+ALTER TABLE `FEEDBACK`
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `UNPLACED_CANDIDATES`
 --
