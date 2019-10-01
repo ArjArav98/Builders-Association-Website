@@ -12,16 +12,6 @@ body, html {
 /**************************************************/
 /* The CSS for the REGISTRATION-FORM starts here. */
 /**************************************************/
-h2 {
-	display: block;
-	width: 100%;
-
-	margin: 5% 0%;
-
-	text-align: center;
-	color: #2196f3;
-}
-
 form {
 	display: block;
 	width: 40%;
@@ -32,7 +22,7 @@ form {
 	border: 2px solid #2196f3;
 }
 
-input {
+input, textarea {
 	display: block;
 	width: 90%;
 
@@ -46,11 +36,16 @@ input {
 	color: #2196f3;
 }
 
+textarea {
+	height: 200px;
+	resize: none;
+}
+
 button {
 	display: block;
 	width: 60%;
 
-	margin: 2% auto;
+	margin: 4% auto;
 	padding: 2% 0%;
 
 	font-size: 108%;
@@ -67,7 +62,7 @@ button {
 
 .unplaced-h2 {
 	display: block;
-	margin: 5% 0% 3% 0%;
+	margin: 5% 0% 5% 0%;
 	width: 100%;
 	
 	color: #2196f3;
