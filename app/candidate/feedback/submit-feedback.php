@@ -22,7 +22,7 @@ $message = $_POST['message'];
 if(sizeof(getCandidate($candidateId, NULL, NULL, NULL, NULL, 0, 0, 1)[0]) != 0) {
 	submitFeedback($candidateId,$message);
 }
-else if(sizeof(getCandidate($candidateId, NULL, NULL, NULL, NULL, 0, 1, 1)[0]) != 0) {
+else if(sizeof(getCandidate($candidateId, NULL, NULL, NULL, NULL, 1, 0, 1)[0]) != 0) {
 	submitFeedback($candidateId,$message);
 }
 else {
