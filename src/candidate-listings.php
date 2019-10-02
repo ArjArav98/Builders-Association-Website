@@ -55,69 +55,42 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 /* Retrieves an array of candidates based on the filter and pagination options passed in. */
 function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district=NULL, $referred=NULL, $placed=0, $viewFullProfile=0, $paginationNum = 1) {
 
+	/*-----------------------------------------------------------------------*/
 	/* We must first construct an SQL statement using the options passed in. */
-	/* We construct the SQL statement by checking the options with if conditions. */
+	/*-----------------------------------------------------------------------*/
 
 	$sqlstmt = "";
 
-	/* We first check if the full profile is needed to be viewed or not. */
-	if($viewFullProfile == 0) {
-		$sqlstmt = "SELECT ID, NAME, QUALIFICATION, EXPERIENCE, DISTRICT ";
-	}
-	else {
-		$sqlstmt = "SELECT ID, NAME, NUMBER, EMAIL, QUALIFICATION, EXPERIENCE, DISTRICT, RESUME ";
-	}
+	/*-----------------------------------------------------------------------------------*/
+	/* We check for several condtns such as whether full profile is needed, placed, etc. */
+	/*-----------------------------------------------------------------------------------*/
 
-	/* We check if the candidate is placed or not. */
-	if($placed == 0) {
-		$sqlstmt .= "FROM UNPLACED_CANDIDATES WHERE ";
-	}
-	else {
-		$sqlstmt .= "FROM PLACED_CANDIDATES WHERE ";
-	}
-
-	/* We check for QUALIFICATION. */
-	if($qualification != NULL) {
-		$sqlstmt .= "QUALIFICATION = '$qualification' ";
-	}
-	else {
-		$sqlstmt .= "QUALIFICATION LIKE '%' ";
-	}
-
-	/* We check if some ID is there. */
-	if($id != NULL) {
-		$sqlstmt .= "AND ID = $id ";
-	}
-
-	/* We check for EXPERIENCE. */
-	if($experience != NULL) {
-		$sqlstmt .= "AND EXPERIENCE = '$experience' ";
-	}
-
-	/* We check for DISTRICT. */
-	if($district != NULL) {
-		$sqlstmt .= "AND DISTRICT = '$district' ";
-	}
-
-	/* We Check for REFERRED_COMPANY. */
-	if($referred == NULL && $placed == 0) {
-		$sqlstmt .= "AND REFERRED_COMPANY IS NULL ";
-	}
+	$sqlstmt .= ($viewFullProfile == 0)? "SELECT ID, NAME, QUALIFICATION, EXPERIENCE, DISTRICT " : "SELECT ID, NAME, NUMBER, EMAIL, QUALIFICATION, EXPERIENCE, DISTRICT, RESUME ";
+	$sqlstmt .= ($placed == 0)? "FROM UNPLACED_CANDIDATES WHERE " : "FROM PLACED_CANDIDATES WHERE ";
+	$sqlstmt .= ($qualification != NULL)? "QUALIFICATION = '$qualification' " : "QUALIFICATION LIKE '%' ";
+	$sqlstmt .= ($id != NULL)? "AND ID = $id " : "";
+	$sqlstmt .= ($experience != NULL)? "AND EXPERIENCE = '$experience' " : "";
+	$sqlstmt .= ($district != NULL)? "AND DISTRICT = '$district' " : "";
+	
+	/* We check for REFERRED_COMPANY. */
+	
+	$sqlstmt .= ($referred == NULL && $placed == 0)? "AND REFERRED_COMPANY IS NULL " : "";
 	if($referred != NULL && $placed == 0) {
-		if($referred == "ALL") {}
-		else { $sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' "; }
+		$sqlstmt .= ($referred == "ALL")? "" : "AND REFERRED_COMPANY LIKE '$referred' ";
 	}
 	if($referred != NULL && $placed == 1) {
-		if($referred == "ALL") {}
-		else { $sqlstmt .= "AND COMPANY = $referred "; }
+		$sqlstmt .= ($referred == "ALL")? "" : "AND COMPANY = $referred ";
 	}
 
-	/* We now construct for the Pagination Limit. */
-	$paginationNum *= 100;
-	$sqlstmt .= "LIMIT ".($paginationNum-100).",".($paginationNum).";";
+	//$paginationNum *= 1000;
+	//$sqlstmt .= "LIMIT ".($paginationNum-100).",".($paginationNum).";";
+	$sqlstmt .= ";";
 	
-	try {
+	/*---------------------------------------*/
+	/* We now take the query and execute it. */
+	/*---------------------------------------*/
 
+	try {
 		$connection = getConnection(); //Creates connection.
 
 		$results = executeQuery($connection, $sqlstmt);
@@ -141,10 +114,8 @@ function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district
 			}
 
 			return array($id,$name,$qualification,$experience,$district);
-
 		}
 		else { //If we want the full profile...
-
 			$id = array();
 			$name = array();
 			$number = array();
@@ -166,7 +137,6 @@ function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district
 			}
 
 			return array($id,$name,$number,$email,$qualification,$experience,$district,$resume);
-
 		}
 
 	} catch (PDOException $exception) {
