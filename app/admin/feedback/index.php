@@ -30,10 +30,9 @@ $HTML = "";
 /* We iterate over the array and generate a HTML string. */
 while($iterator < $length) {
 	$HTML .= "<div class='candidate'>
-			<p><span
-				class='cell-value alternative-cl'>".$feedbacks[0][$iterator]."</span><span 
-				class='cell-value cell-value-bg-bg'>".$feedbacks[1][$iterator]."</span>
-			</p>
+			<a href='#'><span
+				class='cell-value cell-value-bg-bg alternative-cl'>".$feedbacks[1][$iterator]."</span>
+			</a>
 		</div>";
 
 	$iterator += 1;
@@ -43,7 +42,6 @@ while($iterator < $length) {
 if($length > 0) {
 	$HTMLHeaders = "<div class='candidate'>
 			<p><span
-				class='cell-value orange-bg'>CANDIDATE ID</span><span 
 				class='cell-value cell-value-bg-bg orange-bg'>CANDIDATE FEEDBACK</span>
 			</p>
 		</div>";
@@ -60,7 +58,7 @@ if($length > 0) {
 <!DOCTYPE html>
 
 	<head>
-		<title>Admin - Placed Candidates | Builders Association</title>
+		<title>Admin - Feedback Portal | Builders Association</title>
 		<meta name="description" content="Web Application for Placements for the Builders Association!">
 		<meta name="keywords" content="web,application,placements,civil,builders,arjun,aravind,developer">
 		<meta name="author" content="Arjun Aravind">
@@ -71,21 +69,19 @@ if($length > 0) {
 
 	<body>
 	
-		<!-- This page contains options for displaying and searching for candidates. -->
-		<!-- This page also contains an option to log out and display comapnies. -->
-
+		<!-- This page displays all submitted feedback by students. -->
 		<nav>
 			<a href="../home/index.php">Unplaced Candidates</a><a
-			href="">Placed Candidates</a><a
+			href="../placed/index.php">Placed Candidates</a><a
 			href="../companies/index.php">Manage Companies</a><a
-			href="../feedback/index.php">Feedback</a><a
+			href="">Feedback</a><a
 			href="../history/index.php?page=0">History</a><a
 			href="../login/logout.php">Logout</a>
 		</nav>
 
-		<h2 class="unplaced-h2">Candidate Feedback<br><span>Get candidate details, using the ID provided, in the 'History' page.</span></h2>
+		<h2 class="unplaced-h2">Candidate Feedback<br><span>Click on the feedback to know more!</span></h2>
 
-		<!-- The list of candidates will be displayed here. -->
+		<!-- The feedbacks will all be displayed here. -->
 		<div class="candidate-list">
 			<?php echo $HTML; ?>
 		</div>

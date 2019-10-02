@@ -76,6 +76,7 @@ nav a:hover {
 	width: 100%;
 
 	margin: 0.25% auto;
+	text-align: center;
 }
 
 .candidate a, .candidate p {
@@ -83,13 +84,6 @@ nav a:hover {
 	width: 99%;
 
 	margin: 0;
-}
-
-.candidate-form {
-	display: inline-block;
-	width: 29%;
-
-	background-color: transparent;
 }
 
 .cell-value {
@@ -106,12 +100,12 @@ nav a:hover {
 }
 
 .cell-value-bg-bg {
-	width: 83.7%;
+	width: 70%;
 }
 
 .alternative-cl {
+	padding: 1.5% 1%;
 	color: white;
-	font-weight: 600;
 	background-color: #2196f3;
 }
 
