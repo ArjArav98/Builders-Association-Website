@@ -5,7 +5,14 @@
 * Python3.6
 
 ### Setting Up The Database
-* The database schema can be found in ```database/schema.sql```. Import this using PHPMyAdmin or MySQL in the command line.
+* The database schema can be found in ```database/schema.sql```. Copy the contents of the file to your clipboard.
+	* In your PHPMyAdmin or in your MySQL server in the command line, execute the following queries.
+		```
+		CREATE DATABASE BUILDERS_ASSOCIATION;
+		USE BUILDERS_ASSOCIATION;
+		```
+	* Paste the contents of the schema file into the MySQL command prompt and press 'Enter'.
+* The database will successfully have been created along with all the tables.
 
 ### File Permissions
 * Change the file permission for ```app/admin/history/log.txt``` to 777.
