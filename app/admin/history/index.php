@@ -52,6 +52,7 @@ $nextPageNum = $pageNum + 1;
 			<a href="../home/index.php">Unplaced Candidates</a><a
 			href="../placed/index.php">Placed Candidates</a><a
 			href="../companies/index.php">Manage Companies</a><a
+			href="../feedback/index.php">Feedback</a><a
 			href="">History</a><a
 			href="../login/logout.php">Logout</a>
 		</nav>

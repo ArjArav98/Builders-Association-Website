@@ -30,9 +30,9 @@ nav {
 
 nav a {
 	display: inline-block;
-	width: 20%;
+	width: 16.66%;
 
-	padding: 1.5% 0%;
+	padding: 1.8% 0%;
 
 	text-decoration: none;
 	background-color: white;
@@ -62,7 +62,7 @@ form {
 .manage-company-form {
 	width: 70%;
 
-	margin: 7% auto 4% auto;
+	margin: 9% auto 4% auto;
 	padding: 2% 0%;
 
 	border: 2px solid #2196f3;
