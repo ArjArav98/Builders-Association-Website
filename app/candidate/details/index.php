@@ -7,6 +7,7 @@
 /* This file gives the full details of the specified candidate. */
 
 /* We include the necessary libraries. */
+session_start();
 require '../../../src/sql-connections.php';
 require '../../../src/sql-functions.php';
 require '../../../src/data-validation.php';
