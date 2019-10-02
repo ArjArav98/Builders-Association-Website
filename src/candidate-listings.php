@@ -104,10 +104,12 @@ function getCandidate($id=NULL, $qualification=NULL, $experience=NULL, $district
 		$sqlstmt .= "AND REFERRED_COMPANY IS NULL ";
 	}
 	if($referred != NULL && $placed == 0) {
-		$sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' ";
+		if($referred == "ALL") {}
+		else { $sqlstmt .= "AND REFERRED_COMPANY LIKE '$referred' "; }
 	}
 	if($referred != NULL && $placed == 1) {
-		$sqlstmt .= "AND COMPANY = $referred ";
+		if($referred == "ALL") {}
+		else { $sqlstmt .= "AND COMPANY = $referred "; }
 	}
 
 	/* We now construct for the Pagination Limit. */

@@ -29,7 +29,7 @@ function getFeedback() {
 	try {
 		$connection = getConnection(); //Creates connection.
 
-		$sqlstmt = "SELECT CANDIDATEID, MESSAGE FROM FEEDBACK;";
+		$sqlstmt = "SELECT CANDIDATEID, MESSAGE FROM FEEDBACK ORDER BY ID DESC;";
 		$results = executeQuery($connection, $sqlstmt);
 		$connection = NULL; //Closes connection.
 

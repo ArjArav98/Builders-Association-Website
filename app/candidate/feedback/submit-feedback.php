@@ -19,10 +19,10 @@ $candidateId = $_POST['candidateId'];
 $message = $_POST['message'];
 
 /* We check if the candidateId exists. */
-if(sizeof(getCandidate($candidateId, NULL, NULL, NULL, NULL, 0, 0, 1)[0]) != 0) {
+if(sizeof(getCandidate($candidateId, NULL, NULL, NULL, "ALL", 0, 0, 1)[0]) != 0) {
 	submitFeedback($candidateId,$message);
 }
-else if(sizeof(getCandidate($candidateId, NULL, NULL, NULL, NULL, 1, 0, 1)[0]) != 0) {
+else if(sizeof(getCandidate($candidateId, NULL, NULL, NULL, "ALL", 1, 0, 1)[0]) != 0) {
 	submitFeedback($candidateId,$message);
 }
 else {

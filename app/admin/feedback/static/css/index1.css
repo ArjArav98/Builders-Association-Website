@@ -1,0 +1,124 @@
+/**************************/
+/* CSS for BODY and HTML. */
+/**************************/
+
+body, html {
+	margin: 0;
+	padding: 0;
+
+	font-family: "Verdana", sans-serif;
+	color: black;
+}
+
+/***********************/
+/* CSS for the NAVBAR. */
+/***********************/
+
+nav {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	padding: 0% 0%;
+
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	
+	background-color: white;
+	text-align: center;
+}
+
+nav a {
+	display: inline-block;
+	width: 16.66%;
+
+	padding: 1.8% 0%;
+
+	text-decoration: none;
+	background-color: white;
+	color: #2196F3;
+	font-weight: 600;
+
+	transition: all 0.2s;
+}
+
+nav a:hover {
+	background-color: #2196F3;
+	color: white;
+}
+
+/********************************/
+/* CSS for the CANDIDATES-LIST. */
+/********************************/
+
+.unplaced-h2 {
+	display: block;
+	margin: 9% 0% 3% 0%;
+	width: 100%;
+	
+	color: #2196f3;
+	text-align: center;
+}
+
+.unplaced-h2 span {
+	font-size: 70%;
+}
+
+.candidate-list {
+	display: block;
+	width: 100%;
+
+	margin: 2% 0%;
+}
+
+.candidate {
+	display: block;
+	width: 100%;
+
+	margin: 0.25% auto;
+}
+
+.candidate a, .candidate p {
+	display: inline-block;
+	width: 99%;
+
+	margin: 0;
+}
+
+.candidate-form {
+	display: inline-block;
+	width: 29%;
+
+	background-color: transparent;
+}
+
+.cell-value {
+	display: inline-block;
+	width: 12%;
+
+	padding: 1%;
+	border-right: 2px solid white;
+
+	background-color: white;
+	vertical-align: middle;
+	text-align: center;
+	color: #2196f3;
+}
+
+.cell-value-bg-bg {
+	width: 83.7%;
+}
+
+.alternative-cl {
+	color: white;
+	font-weight: 600;
+	background-color: #2196f3;
+}
+
+.orange-bg {
+	background-color: orange;
+	font-weight: 600;
+	color: white;
+
+	border-right: 2px solid white;
+}
