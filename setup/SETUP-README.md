@@ -1,8 +1,12 @@
 # Setting Up This Project!
 
 ### Pre-requisites
-* Web Server (Either the XAMPP/LAMPP or the LEMP stack)
-* Python3.6
+* Web Server - Either Nginx or Apache
+* MySQL
+* PHP 7.2
+* Python 3.6
+
+For the first three, you can download either the LEMP or the XAMPP stack to get started.
 
 ### Setting Up The Database
 * The database schema can be found in ```database/schema.sql```. Copy the contents of the file to your clipboard.
