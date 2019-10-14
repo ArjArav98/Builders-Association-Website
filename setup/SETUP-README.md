@@ -14,12 +14,17 @@
 	* Paste the contents of the schema file into the MySQL command prompt and press 'Enter'.
 * The database will successfully have been created along with all the tables.
 
+### Creating The Requisite Files
+* Create the following files (For Linux/Unix/OS X).
+
+	```touch app/admin/history/log.txt```
+	```touch app/admin/history/searched-log.txt```
+
 ### File/Folder Permissions
-* Change the file permission for ```app/admin/history/log.txt``` to 777.
+* Change the file permission for the following files/folders to 777 (For Linux/Unix/OS X).
 
 	```chmod 777 app/admin/history/log.txt```
-* Change the folder permission for ```app/candidate/register/resumes``` to 777.
-
+	```chmod 777 app/admin/history/searched-log.txt```
 	```chmod 777 app/candidate/register/resumes```
 
 ### Environment Variables
