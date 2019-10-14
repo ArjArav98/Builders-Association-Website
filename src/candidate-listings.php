@@ -11,7 +11,7 @@
 /*-----------*/
 
 /* This function inserts given candidate info into 'Unplaced Candidates' table. */
-function insertCandidate($name,$number,$email,$qualification,$experience,$district){
+function insertCandidate($name,$number,$email,$qualification,$experience,$district,$resumeName){
 
 	/* We must first validate the information. */
 	/* If not valid, we return false. */
@@ -24,9 +24,6 @@ function insertCandidate($name,$number,$email,$qualification,$experience,$distri
 	else if(emailIsValid($email) == false) {
 		return;
 	}
-
-	/* We initialise the following values. */
-	$resumeName = getCurrentAutoIncValue().".pdf";
 
 	/* Once everything is set, we insert into SQL table. */
 	try {

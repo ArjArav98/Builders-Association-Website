@@ -55,7 +55,7 @@ $result = getCandidate($candidateId, NULL, NULL, NULL, $referred, $placed, 1, 1)
 		<p><span>Experience:</span> <?php echo $result[5][0]; ?></p>
 		<p class="alternative-p"><span>Qualification:</span> <?php echo $result[4][0]; ?></p>
 		<p><span>District:</span> <?php echo $result[6][0] ?></p>
-		<a href="#">Download Resume</a>
+		<a href="<?php echo "../register/".$result[7][0];?>">Download Resume</a>
 
 	</body>
 

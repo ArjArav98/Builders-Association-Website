@@ -21,18 +21,20 @@ $qualification = $_POST['qualification'];
 $experience = $_POST['experience'];
 $district = $_POST['district'];
 
-/* We insert the data into the table and send the email to the candidate's email. */
-insertCandidate($name, $number, $email, $qualification, $experience, $district);
-sendInfoEmailToCandidate($email);
-
 /* We move the chosen resume to the resumes/ folder. */
+$path = "";
 if(!empty($_FILES['resume'])) {
 	$path = "resumes/";
-	$path = $path . getCurrentAutoIncValue();
+	$extension = pathinfo($_FILES['resume']['name'], PATHINFO_EXTENSION);
+	$path = $path.getCurrentAutoIncValue().".".$extension;
 	
 	if(move_uploaded_file($_FILES['resume']['tmp_name'], $path)){ }
 	else { }
 }
+
+/* We insert the data into the table and send the email to the candidate's email. */
+insertCandidate($name, $number, $email, $qualification, $experience, $district, $path);
+sendInfoEmailToCandidate($email);
 
 /* We then redirect to the index.html file. */
 header('Location: index.html', true, 303);

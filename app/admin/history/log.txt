@@ -1,6 +1,0 @@
-<span>[2019-10-01 14:56:26]</span> Aravind B (Candidate-ID: 6) was placed in TVH Builders Pvt Ltd (Company-ID: 2).
-<span>[2019-10-01 14:56:23]</span> Rahul Dravid (Candidate-ID: 3) was rejected by TVH Builders Pvt Ltd (Company-ID: 2).
-<span>[2019-10-01 14:55:33]</span> Aravind B (Candidate-ID: 6) was referred to TVH Builders Pvt Ltd (Company-ID: 2).
-<span>[2019-10-01 14:55:29]</span> Rahul Dravid (Candidate-ID: 3) was referred to TVH Builders Pvt Ltd (Company-ID: 2).
-<span>[2019-09-30 13:13:49]</span> MS Dhoni (Candidate-ID: 2) was referred to Sri Venkateswara College (Company-ID: 1).
-<span>[2019-09-30 13:11:13]</span> Arjun Aravind (Candidate-ID: 1) was referred to Sri Venkateswara College (Company-ID: 1).
