@@ -14,10 +14,13 @@
 	* Paste the contents of the schema file into the MySQL command prompt and press 'Enter'.
 * The database will successfully have been created along with all the tables.
 
-### File Permissions
+### File/Folder Permissions
 * Change the file permission for ```app/admin/history/log.txt``` to 777.
 
 	```chmod 777 app/admin/history/log.txt```
+* Change the folder permission for ```app/candidate/register/resumes``` to 777.
+
+	```chmod 777 app/candidate/register/resumes```
 
 ### Environment Variables
 * For XAMPP/LAMPP, navigate to the ```XAMPP/bin/envvar``` file and paste the following.
