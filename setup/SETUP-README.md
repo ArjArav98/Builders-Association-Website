@@ -21,18 +21,19 @@ For the first three, you can download either the LEMP or the XAMPP stack to get 
 ### Creating The Requisite Files
 * Create the following files (For Linux/Unix/OS X).
 
-	```touch app/admin/history/log.txt```
-	
-	```touch app/admin/history/searched-log.txt```
+	```
+	touch app/admin/history/log.txt
+	touch app/admin/history/searched-log.txt
+	```
 
 ### File/Folder Permissions
 * Change the file permission for the following files/folders to 777 (For Linux/Unix/OS X).
 
-	```chmod 777 app/admin/history/log.txt```
-	
-	```chmod 777 app/admin/history/searched-log.txt```
-	
-	```chmod 777 app/candidate/register/resumes```
+	```
+	chmod 777 app/admin/history/log.txt
+	chmod 777 app/admin/history/searched-log.txt
+	chmod 777 app/candidate/register/resumes
+	```
 
 ### Environment Variables
 * For XAMPP/LAMPP, navigate to the ```XAMPP/bin/envvar``` file and paste the following.
